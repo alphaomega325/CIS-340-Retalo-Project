@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace Retalo
 {
     partial class Form1
     {
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.retalDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.retal_DBDataSet = new WindowsFormsApp1.Retal_DBDataSet();
+            this.retal_DBDataSet = new Retalo.Retal_DBDataSet();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.retalDBDataSetBindingSource)).BeginInit();
