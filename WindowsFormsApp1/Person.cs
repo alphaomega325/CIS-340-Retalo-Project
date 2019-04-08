@@ -27,7 +27,10 @@ namespace Retalo
 	        }
 	        private set
 	        {
-                reward_point = value;
+		    if(value < 0)
+		    {
+			throw new NumberUnderflowException();
+		    }
 	        }
 	    }
 
