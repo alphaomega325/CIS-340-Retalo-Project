@@ -19,9 +19,16 @@ namespace Retalo
             InitializeComponent();
         }
 
+	private void PersonObjectFill()
+	{
+	    person.FName = FNametxt.Text;
+	    person.LName = LNametxt.Text;
+	    
+	}
+	
         private void Submitbtn_Click(object sender, EventArgs e)
         {
-
+	    if(PersonOperstion.AddorUpdatePerson(Person person)
         }
 
         private void Getcustomerbtn_Click(object sender, EventArgs e)

@@ -96,6 +96,105 @@ namespace Retalo
 
         }
 
+	public static Boolean AddorUpdatePerson(Person person)
+	{
+
+	    if(ReturnPerson(id) == null)
+	    {
+		return AddPerson(person);
+	    }
+	    else
+	    {
+		return UpdatePerson(person);
+	    }
+
+
+	}
+
+	public static Boolean AddPerson(Person person)
+	{
+
+	    if(ReturnPerson(person.ID) != null)
+	    {
+		return false;
+
+	    }
+	    
+	    SqlConnection connection = RetaloDB.GetConnection();
+	    string addStatement = "INSERT INTO Person"
+		+"Values(PerID = @ID, Fname = @FName, Lname = @LName, Phone Number = @Phone_Number, Email = @Email, Reward Points = @Reward Points, Is_Teacher = @IsTeacher, Is_Admin = @IsAdmin, Is_Senior = @IsSenior, Is_Veteran = @IsVeteran) ";
+	    SqlCommand addCommand = new SqlCommand(addStatement, connection);
+	    addCommand.Parameters.AddWithValue("@ID", person.ID);
+	    addCommand.Parameters.AddWithValue("@FName", person.FName);
+	    addCommand.Parameters.AddWithValue("@LName", person.LName);
+	    addCommand.Parameters.AddWithValue("@Phone_Number", person.Phone_Number);
+	    addCommand.Parameters.AddWithValue("@Email", person.Email);
+	    addCommand.Parameters.AddWithValue("@Reward Points", person.Reward_Points);
+	    addCommand.Parameters.AddWithValue("@IsTeacher", person.IsTeacher);
+	    addCommand.Parameters.AddWithValue("@IsAdmin", person.IsAdmin);
+	    addCommand.Parameters.AddWithValue("@IsSenior", person.IsSenior);
+	    addCommand.Parameters.AddWithValue("@IsVeteran", person.IsVeteran);
+	    try
+	    {
+		connection.Open();
+		addCommand.ExecuteNonQuery();
+		
+
+	    }catch(Exception ex)
+	    {
+		throw ex;
+	    }
+	    finally
+	    {
+		connection.Close();
+
+	    }
+	    return true;
+
+	    
+
+	}
+
+	public static Boolean UpdatePerson(Person person)
+	{
+	    if(ReturnPerson(person.ID) == null)
+	    {
+		return false;
+
+	    }
+
+	    SqlConnection connection = RetaloDB.GetConnection();
+	    string updateStatement = "UPDATE Person"
+		+"INTO Fname = @FName, Lname = @LName, Phone Number = @Phone_Number, Email = @Email, Reward Points = @Reward Points, Is_Teacher = @IsTeacher, Is_Admin = @IsAdmin, Is_Senior = @IsSenior, Is_Veteran = @IsVeteran "
+		+"WHERE PerID = @ID";
+	    SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
+	    
+	    updateCommand.Parameters.AddWithValue("@FName", person.FName);
+	    updateCommand.Parameters.AddWithValue("@LName", person.LName);
+	    updateCommand.Parameters.AddWithValue("@Phone_Number", person.Phone_Number);
+	    updateCommand.Parameters.AddWithValue("@Email", person.Email);
+	    updateCommand.Parameters.AddWithValue("@Reward Points", person.Reward_Points);
+	    updateCommand.Parameters.AddWithValue("@IsTeacher", person.IsTeacher);
+	    updateCommand.Parameters.AddWithValue("@IsAdmin", person.IsAdmin);
+	    updateCommand.Parameters.AddWithValue("@IsSenior", person.IsSenior);
+	    updateCommand.Parameters.AddWithValue("@IsVeteran", person.IsVeteran);
+
+	    try
+	    {
+		connection.Open();
+		updateCommand.ExecuteNonQuery();
+
+	    }catch(Exception ex)
+	    {
+		throw ex;
+	    }
+	    finally
+	    {
+		connection.Close();
+	    }
+	    return true;
+
+	}
 
     }
 }

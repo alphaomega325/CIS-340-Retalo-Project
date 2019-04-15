@@ -56,7 +56,7 @@ namespace Retalo
             set;
         }
 
-        public int Reward_Point
+        public int Reward_Points
         {
             get
             {
@@ -75,11 +75,11 @@ namespace Retalo
             }
         }
 
-        public void set_Reward_Points(int reward) => Reward_Point = reward;
+        public void set_Reward_Points(int reward) => Reward_Points = reward;
         
-        public void add_Reward_Points(int reward) => Reward_Point += reward;
+        public void add_Reward_Points(int reward) => Reward_Points += reward;
         
-        public void subtract_Reward_Points(int reward) => Reward_Point -= reward;
+        public void subtract_Reward_Points(int reward) => Reward_Points -= reward;
 
 
     }
