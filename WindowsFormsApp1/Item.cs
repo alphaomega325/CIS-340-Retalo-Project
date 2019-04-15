@@ -7,11 +7,13 @@ namespace Retalo
     {
 
 	public string Name{
-	    get;
+	        get;    
+            set;
 	}
 	
 	public int ID{
-	    get;
+            get;
+            set;
 	}
 
     }
