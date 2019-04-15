@@ -168,7 +168,8 @@ namespace Retalo
 		+"INTO Fname = @FName, Lname = @LName, Phone Number = @Phone_Number, Email = @Email, Reward Points = @Reward Points, Is_Teacher = @IsTeacher, Is_Admin = @IsAdmin, Is_Senior = @IsSenior, Is_Veteran = @IsVeteran "
 		+"WHERE PerID = @ID";
 	    SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
-	    
+
+	    updateCommand.Parameters.AddWithValue("@ID", person.ID);
 	    updateCommand.Parameters.AddWithValue("@FName", person.FName);
 	    updateCommand.Parameters.AddWithValue("@LName", person.LName);
 	    updateCommand.Parameters.AddWithValue("@Phone_Number", person.Phone_Number);
