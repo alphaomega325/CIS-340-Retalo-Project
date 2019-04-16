@@ -21,6 +21,9 @@ namespace Retalo
 
 	private void PersonObjectFill()
 	{
+            person = new Person();
+
+            person.ID = Int32.Parse(IDtxt.Text);
 	        person.FName = FNametxt.Text;
 	        person.LName = LNametxt.Text;
             person.Email = Emailtxt.Text;
@@ -62,6 +65,10 @@ namespace Retalo
                     Isseniorchkbx.Checked = person.IsSenior;
                     Isveteranchkbx.Checked = person.IsVeteran;
                     Isadminchkbx.Checked = person.IsAdmin;
+                }
+                else
+                {
+                    MessageBox.Show("You have selected a empty id, you can now fill it.");
                 }
             }
             else

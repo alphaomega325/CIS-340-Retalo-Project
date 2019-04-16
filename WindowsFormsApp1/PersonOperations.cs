@@ -124,8 +124,9 @@ namespace Retalo
 	    }
 	    
 	    SqlConnection connection = RetaloDB.GetConnection();
-	    string addStatement = "INSERT INTO Person"
-		+"Values(PerID = @ID, Fname = @FName, Lname = @LName, Phone Number = @Phone_Number, Email = @Email, Reward Points = @Reward Points, Is_Teacher = @IsTeacher, Is_Admin = @IsAdmin, Is_Senior = @IsSenior, Is_Veteran = @IsVeteran) ";
+	    string addStatement = "INSERT INTO Person (PerID, Fname, Lname, 'Phone Number', Email, 'Reward Points', Is_Teacher, Is_Admin, Is_Senior, Is_Veteran) "
+		+"Values(@ID, @FName, @LName, @Phone_Number, @Email, " 
+        +"@Reward Points, @IsTeacher, @IsAdmin, @IsSenior, @IsVeteran); ";
 	    SqlCommand addCommand = new SqlCommand(addStatement, connection);
 	    addCommand.Parameters.AddWithValue("@ID", person.ID);
 	    addCommand.Parameters.AddWithValue("@FName", person.FName);
