@@ -33,7 +33,10 @@ namespace Retalo
                     person.LName = personReader["Lname"].ToString();
                     person.Phone_Number = personReader["Phone Number"].ToString();
                     person.Email = personReader["Email"].ToString();
-                    person.set_Reward_Points((int)personReader["Reward Points"]);
+                    int reward = 0;
+                    Int32.TryParse(personReader["Reward Points"].ToString(), out reward);
+
+                    person.Set_Reward_Points(reward);
                     person.IsTeacher = (Boolean)personReader["Is_Teacher"];
                     person.IsAdmin = (Boolean)personReader["Is_Admin"];
                     person.IsSenior = (Boolean)personReader["Is_Senior"];
@@ -99,7 +102,7 @@ namespace Retalo
 	public static Boolean AddorUpdatePerson(Person person)
 	{
 
-	    if(ReturnPerson(id) == null)
+	    if(ReturnPerson(person.ID) == null)
 	    {
 		return AddPerson(person);
 	    }

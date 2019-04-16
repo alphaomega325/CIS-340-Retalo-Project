@@ -21,14 +21,27 @@ namespace Retalo
 
 	private void PersonObjectFill()
 	{
-	    person.FName = FNametxt.Text;
-	    person.LName = LNametxt.Text;
-	    
+	        person.FName = FNametxt.Text;
+	        person.LName = LNametxt.Text;
+            person.Email = Emailtxt.Text;
+            person.Phone_Number = Phonetxt.Text;
+            int reward = Int32.Parse(Rewardptstxt.Text);
+
+            person.Set_Reward_Points(reward);
+            person.IsTeacher = Isteacherchkbx.Checked;
+            person.IsSenior = Isseniorchkbx.Checked;
+            person.IsVeteran = Isveteranchkbx.Checked;
+            person.IsAdmin = Isadminchkbx.Checked;
+
 	}
 	
         private void Submitbtn_Click(object sender, EventArgs e)
         {
-	    if(PersonOperstion.AddorUpdatePerson(Person person)
+            PersonObjectFill();
+
+            if (PersonOperations.AddorUpdatePerson(person)){
+
+            }
         }
 
         private void Getcustomerbtn_Click(object sender, EventArgs e)
@@ -44,11 +57,11 @@ namespace Retalo
                     LNametxt.Text = person.LName;
                     Phonetxt.Text = person.Phone_Number;
                     Emailtxt.Text = person.Email;
-                    Rewardptstxt.Text = person.Reward_Point.ToString();
-                    Isteacherchkbx.Enabled = person.IsTeacher;
-                    Isseniorchkbx.Enabled = person.IsSenior;
-                    Isveteranchkbx.Enabled = person.IsVeteran;
-                    Isadminchkbx.Enabled = person.IsAdmin;
+                    Rewardptstxt.Text = person.Reward_Points.ToString();
+                    Isteacherchkbx.Checked = person.IsTeacher;
+                    Isseniorchkbx.Checked = person.IsSenior;
+                    Isveteranchkbx.Checked = person.IsVeteran;
+                    Isadminchkbx.Checked = person.IsAdmin;
                 }
             }
             else

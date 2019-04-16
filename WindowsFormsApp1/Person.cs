@@ -6,7 +6,7 @@ namespace Retalo
     public class Person : Item
     {
 
-        private int reward_point;
+        private int reward_point = 0;
 
         public String FName
         {
@@ -58,28 +58,25 @@ namespace Retalo
 
         public int Reward_Points
         {
-            get
+            get;
+
+        }
+
+        public void Set_Reward_Points(int value)
+        {
+            if(value < 0)
             {
-                return reward_point;
+                throw new DataMisalignedException();
             }
-            private set
+            else
             {
-                if (value < 0)
-                {
-                    throw new DataMisalignedException("Reward Points can't be set less than zero");
-                }
-                else
-                {
-                    reward_point = value;
-                }
+                reward_point = value;
             }
         }
 
-        public void set_Reward_Points(int reward) => Reward_Points = reward;
+        public void Add_Reward_Points(int reward) => Set_Reward_Points(reward_point += reward);
         
-        public void add_Reward_Points(int reward) => Reward_Points += reward;
-        
-        public void subtract_Reward_Points(int reward) => Reward_Points -= reward;
+        public void Subtract_Reward_Points(int reward) => Set_Reward_Points(reward_point -= reward);
 
 
     }
