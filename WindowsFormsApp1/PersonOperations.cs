@@ -41,6 +41,7 @@ namespace Retalo
                     person.IsAdmin = (Boolean)personReader["Is_Admin"];
                     person.IsSenior = (Boolean)personReader["Is_Senior"];
                     person.IsVeteran = (Boolean)personReader["Is_Veteran"];
+                    person.Password = personReader["password"].ToString();
 
                     return person;
                 }
@@ -101,8 +102,9 @@ namespace Retalo
 
 	public static Boolean AddorUpdatePerson(Person person)
 	{
+            Person test = ReturnPerson(person.ID);
 
-	    if(ReturnPerson(person.ID) == null)
+	    if(test == null)
 	    {
 		return AddPerson(person);
 	    }
@@ -120,20 +122,19 @@ namespace Retalo
 	    if(ReturnPerson(person.ID) != null)
 	    {
 		return false;
-
 	    }
 	    
 	    SqlConnection connection = RetaloDB.GetConnection();
-	    string addStatement = "INSERT INTO Person (PerID, Fname, Lname, 'Phone Number', Email, 'Reward Points', Is_Teacher, Is_Admin, Is_Senior, Is_Veteran) "
-		+"Values(@ID, @FName, @LName, @Phone_Number, @Email, " 
-        +"@Reward Points, @IsTeacher, @IsAdmin, @IsSenior, @IsVeteran); ";
+	    string addStatement = "INSERT INTO Person (Fname, Lname, \"Phone Number\", Email, \"Reward Points\", password, Is_Teacher, Is_Admin, Is_Senior, Is_Veteran) "
+		+"Values(@FName, @LName, @Phone_Number, @Email, " 
+        +"@Reward_Points, @Password, @IsTeacher, @IsAdmin, @IsSenior, @IsVeteran); ";
 	    SqlCommand addCommand = new SqlCommand(addStatement, connection);
-	    addCommand.Parameters.AddWithValue("@ID", person.ID);
 	    addCommand.Parameters.AddWithValue("@FName", person.FName);
 	    addCommand.Parameters.AddWithValue("@LName", person.LName);
 	    addCommand.Parameters.AddWithValue("@Phone_Number", person.Phone_Number);
 	    addCommand.Parameters.AddWithValue("@Email", person.Email);
-	    addCommand.Parameters.AddWithValue("@Reward Points", person.Reward_Points);
+	    addCommand.Parameters.AddWithValue("@Reward_Points", person.Reward_Points);
+        addCommand.Parameters.AddWithValue("@Password", person.Password);
 	    addCommand.Parameters.AddWithValue("@IsTeacher", person.IsTeacher);
 	    addCommand.Parameters.AddWithValue("@IsAdmin", person.IsAdmin);
 	    addCommand.Parameters.AddWithValue("@IsSenior", person.IsSenior);
@@ -168,23 +169,34 @@ namespace Retalo
 	    }
 
 	    SqlConnection connection = RetaloDB.GetConnection();
-	    string updateStatement = "UPDATE Person"
-		+"INTO Fname = @FName, Lname = @LName, Phone Number = @Phone_Number, Email = @Email, Reward Points = @Reward Points, Is_Teacher = @IsTeacher, Is_Admin = @IsAdmin, Is_Senior = @IsSenior, Is_Veteran = @IsVeteran "
-		+"WHERE PerID = @ID";
+	    string updateStatement = "UPDATE Person SET " +
+		"FName = @FName, " +
+        "LName = @LName, " +
+        "\"Phone Number\" = @Phone_Number, " +
+        "Email = @Email, " +
+        "\"Reward Points\" = @Reward_Points, " +
+        "password = @Password, " +
+        "Is_Teacher = @IsTeacher, " +
+        "Is_Admin = @IsAdmin, " +
+        "Is_Senior = @IsSenior, " +
+        "Is_Veteran = @IsVeteran " +
+		"WHERE PerID = @ID;";
 	    SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
 
-	    updateCommand.Parameters.AddWithValue("@ID", person.ID);
+	   
 	    updateCommand.Parameters.AddWithValue("@FName", person.FName);
 	    updateCommand.Parameters.AddWithValue("@LName", person.LName);
 	    updateCommand.Parameters.AddWithValue("@Phone_Number", person.Phone_Number);
 	    updateCommand.Parameters.AddWithValue("@Email", person.Email);
-	    updateCommand.Parameters.AddWithValue("@Reward Points", person.Reward_Points);
+	    updateCommand.Parameters.AddWithValue("@Reward_Points", person.Reward_Points);
+        updateCommand.Parameters.AddWithValue("@Password", person.Password);
 	    updateCommand.Parameters.AddWithValue("@IsTeacher", person.IsTeacher);
 	    updateCommand.Parameters.AddWithValue("@IsAdmin", person.IsAdmin);
 	    updateCommand.Parameters.AddWithValue("@IsSenior", person.IsSenior);
 	    updateCommand.Parameters.AddWithValue("@IsVeteran", person.IsVeteran);
+        updateCommand.Parameters.AddWithValue("@ID", person.ID);
 
-	    try
+            try
 	    {
 		connection.Open();
 		updateCommand.ExecuteNonQuery();

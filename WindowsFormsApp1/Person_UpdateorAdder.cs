@@ -19,32 +19,49 @@ namespace Retalo
             InitializeComponent();
         }
 
-	private void PersonObjectFill()
+	private Boolean PersonObjectFill()
 	{
-            person = new Person();
+            
+            if (Int32.TryParse(Rewardptstxt.Text, out int reward))
+            {
+                person = new Person();
 
-            person.ID = Int32.Parse(IDtxt.Text);
-	        person.FName = FNametxt.Text;
-	        person.LName = LNametxt.Text;
-            person.Email = Emailtxt.Text;
-            person.Phone_Number = Phonetxt.Text;
-            int reward = Int32.Parse(Rewardptstxt.Text);
 
-            person.Set_Reward_Points(reward);
-            person.IsTeacher = Isteacherchkbx.Checked;
-            person.IsSenior = Isseniorchkbx.Checked;
-            person.IsVeteran = Isveteranchkbx.Checked;
-            person.IsAdmin = Isadminchkbx.Checked;
-
+                if(Int32.TryParse(IDtxt.Text, out int id))
+                {
+                    person.ID = id;
+                }
+                person.FName = FNametxt.Text;
+                person.LName = LNametxt.Text;
+                person.Email = Emailtxt.Text;
+                person.Phone_Number = Phonetxt.Text;
+                person.Set_Reward_Points(reward);
+                person.Password = Passwordtxt.Text;
+                person.IsTeacher = Isteacherchkbx.Checked;
+                person.IsSenior = Isseniorchkbx.Checked;
+                person.IsVeteran = Isveteranchkbx.Checked;
+                person.IsAdmin = Isadminchkbx.Checked;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 	}
 	
         private void Submitbtn_Click(object sender, EventArgs e)
         {
-            PersonObjectFill();
-
-            if (PersonOperations.AddorUpdatePerson(person)){
-
+            if (PersonObjectFill()){
+                if (PersonOperations.AddorUpdatePerson(person))
+                {
+                    MessageBox.Show("Addition or modification is a success");
+                }
+                else
+                {
+                    MessageBox.Show("Addition or modification wasn't a success");
+                }
             }
+
         }
 
         private void Getcustomerbtn_Click(object sender, EventArgs e)
@@ -61,6 +78,7 @@ namespace Retalo
                     Phonetxt.Text = person.Phone_Number;
                     Emailtxt.Text = person.Email;
                     Rewardptstxt.Text = person.Reward_Points.ToString();
+                    Passwordtxt.Text = person.Password;
                     Isteacherchkbx.Checked = person.IsTeacher;
                     Isseniorchkbx.Checked = person.IsSenior;
                     Isveteranchkbx.Checked = person.IsVeteran;

@@ -47,6 +47,8 @@
             this.IDtxt = new System.Windows.Forms.TextBox();
             this.Getcustomerbtn = new System.Windows.Forms.Button();
             this.Deletebtn = new System.Windows.Forms.Button();
+            this.passwordlbl = new System.Windows.Forms.Label();
+            this.Passwordtxt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // idlbl
@@ -215,11 +217,29 @@
             this.Deletebtn.UseVisualStyleBackColor = true;
             this.Deletebtn.Click += new System.EventHandler(this.Deletebtn_Click);
             // 
+            // passwordlbl
+            // 
+            this.passwordlbl.AutoSize = true;
+            this.passwordlbl.Location = new System.Drawing.Point(267, 167);
+            this.passwordlbl.Name = "passwordlbl";
+            this.passwordlbl.Size = new System.Drawing.Size(53, 13);
+            this.passwordlbl.TabIndex = 26;
+            this.passwordlbl.Text = "Password";
+            // 
+            // Passwordtxt
+            // 
+            this.Passwordtxt.Location = new System.Drawing.Point(327, 160);
+            this.Passwordtxt.Name = "Passwordtxt";
+            this.Passwordtxt.Size = new System.Drawing.Size(100, 20);
+            this.Passwordtxt.TabIndex = 27;
+            // 
             // Person_UpdateorAdder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Passwordtxt);
+            this.Controls.Add(this.passwordlbl);
             this.Controls.Add(this.Deletebtn);
             this.Controls.Add(this.Getcustomerbtn);
             this.Controls.Add(this.IDtxt);
@@ -267,5 +287,7 @@
         private System.Windows.Forms.TextBox IDtxt;
         private System.Windows.Forms.Button Getcustomerbtn;
         private System.Windows.Forms.Button Deletebtn;
+        private System.Windows.Forms.Label passwordlbl;
+        private System.Windows.Forms.TextBox Passwordtxt;
     }
 }

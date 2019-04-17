@@ -731,7 +731,7 @@ namespace Retalo {
             
             private global::System.Data.DataColumn columnIs_Veteran;
             
-            private global::System.Data.DataColumn columnPassword;
+            private global::System.Data.DataColumn columnpassword;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -848,9 +848,9 @@ namespace Retalo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn PasswordColumn {
+            public global::System.Data.DataColumn passwordColumn {
                 get {
-                    return this.columnPassword;
+                    return this.columnpassword;
                 }
             }
             
@@ -891,7 +891,7 @@ namespace Retalo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public PersonRow AddPersonRow(string FName, string LName, string Phone_Number, string Email, int Reward_Points, bool Is_Teacher, bool Is_Admin, bool Is_Senior, bool Is_Veteran, string Password) {
+            public PersonRow AddPersonRow(string FName, string LName, string Phone_Number, string Email, int Reward_Points, bool Is_Teacher, bool Is_Admin, bool Is_Senior, bool Is_Veteran, string password) {
                 PersonRow rowPersonRow = ((PersonRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -904,7 +904,7 @@ namespace Retalo {
                         Is_Admin,
                         Is_Senior,
                         Is_Veteran,
-                        Password};
+                        password};
                 rowPersonRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPersonRow);
                 return rowPersonRow;
@@ -944,7 +944,7 @@ namespace Retalo {
                 this.columnIs_Admin = base.Columns["Is_Admin"];
                 this.columnIs_Senior = base.Columns["Is_Senior"];
                 this.columnIs_Veteran = base.Columns["Is_Veteran"];
-                this.columnPassword = base.Columns["Password"];
+                this.columnpassword = base.Columns["password"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -970,8 +970,8 @@ namespace Retalo {
                 base.Columns.Add(this.columnIs_Senior);
                 this.columnIs_Veteran = new global::System.Data.DataColumn("Is_Veteran", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIs_Veteran);
-                this.columnPassword = new global::System.Data.DataColumn("Password", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPassword);
+                this.columnpassword = new global::System.Data.DataColumn("password", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpassword);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPerID}, true));
                 this.columnPerID.AutoIncrement = true;
@@ -980,10 +980,21 @@ namespace Retalo {
                 this.columnPerID.AllowDBNull = false;
                 this.columnPerID.ReadOnly = true;
                 this.columnPerID.Unique = true;
+                this.columnFName.AllowDBNull = false;
                 this.columnFName.MaxLength = 50;
+                this.columnLName.AllowDBNull = false;
                 this.columnLName.MaxLength = 50;
+                this.columnPhone_Number.AllowDBNull = false;
                 this.columnPhone_Number.MaxLength = 50;
+                this.columnEmail.AllowDBNull = false;
                 this.columnEmail.MaxLength = 50;
+                this.columnReward_Points.AllowDBNull = false;
+                this.columnIs_Teacher.AllowDBNull = false;
+                this.columnIs_Admin.AllowDBNull = false;
+                this.columnIs_Senior.AllowDBNull = false;
+                this.columnIs_Veteran.AllowDBNull = false;
+                this.columnpassword.AllowDBNull = false;
+                this.columnpassword.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1676,12 +1687,7 @@ namespace Retalo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string FName {
                 get {
-                    try {
-                        return ((string)(this[this.tablePerson.FNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FName\' in table \'Person\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tablePerson.FNameColumn]));
                 }
                 set {
                     this[this.tablePerson.FNameColumn] = value;
@@ -1692,12 +1698,7 @@ namespace Retalo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string LName {
                 get {
-                    try {
-                        return ((string)(this[this.tablePerson.LNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LName\' in table \'Person\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tablePerson.LNameColumn]));
                 }
                 set {
                     this[this.tablePerson.LNameColumn] = value;
@@ -1708,12 +1709,7 @@ namespace Retalo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Phone_Number {
                 get {
-                    try {
-                        return ((string)(this[this.tablePerson.Phone_NumberColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Phone Number\' in table \'Person\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tablePerson.Phone_NumberColumn]));
                 }
                 set {
                     this[this.tablePerson.Phone_NumberColumn] = value;
@@ -1724,12 +1720,7 @@ namespace Retalo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Email {
                 get {
-                    try {
-                        return ((string)(this[this.tablePerson.EmailColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Email\' in table \'Person\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tablePerson.EmailColumn]));
                 }
                 set {
                     this[this.tablePerson.EmailColumn] = value;
@@ -1740,12 +1731,7 @@ namespace Retalo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int Reward_Points {
                 get {
-                    try {
-                        return ((int)(this[this.tablePerson.Reward_PointsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Reward Points\' in table \'Person\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tablePerson.Reward_PointsColumn]));
                 }
                 set {
                     this[this.tablePerson.Reward_PointsColumn] = value;
@@ -1756,12 +1742,7 @@ namespace Retalo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Is_Teacher {
                 get {
-                    try {
-                        return ((bool)(this[this.tablePerson.Is_TeacherColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Is_Teacher\' in table \'Person\' is DBNull.", e);
-                    }
+                    return ((bool)(this[this.tablePerson.Is_TeacherColumn]));
                 }
                 set {
                     this[this.tablePerson.Is_TeacherColumn] = value;
@@ -1772,12 +1753,7 @@ namespace Retalo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Is_Admin {
                 get {
-                    try {
-                        return ((bool)(this[this.tablePerson.Is_AdminColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Is_Admin\' in table \'Person\' is DBNull.", e);
-                    }
+                    return ((bool)(this[this.tablePerson.Is_AdminColumn]));
                 }
                 set {
                     this[this.tablePerson.Is_AdminColumn] = value;
@@ -1788,12 +1764,7 @@ namespace Retalo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Is_Senior {
                 get {
-                    try {
-                        return ((bool)(this[this.tablePerson.Is_SeniorColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Is_Senior\' in table \'Person\' is DBNull.", e);
-                    }
+                    return ((bool)(this[this.tablePerson.Is_SeniorColumn]));
                 }
                 set {
                     this[this.tablePerson.Is_SeniorColumn] = value;
@@ -1804,12 +1775,7 @@ namespace Retalo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Is_Veteran {
                 get {
-                    try {
-                        return ((bool)(this[this.tablePerson.Is_VeteranColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Is_Veteran\' in table \'Person\' is DBNull.", e);
-                    }
+                    return ((bool)(this[this.tablePerson.Is_VeteranColumn]));
                 }
                 set {
                     this[this.tablePerson.Is_VeteranColumn] = value;
@@ -1818,138 +1784,13 @@ namespace Retalo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Password {
+            public string password {
                 get {
-                    try {
-                        return ((string)(this[this.tablePerson.PasswordColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Password\' in table \'Person\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tablePerson.passwordColumn]));
                 }
                 set {
-                    this[this.tablePerson.PasswordColumn] = value;
+                    this[this.tablePerson.passwordColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsFNameNull() {
-                return this.IsNull(this.tablePerson.FNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetFNameNull() {
-                this[this.tablePerson.FNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsLNameNull() {
-                return this.IsNull(this.tablePerson.LNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetLNameNull() {
-                this[this.tablePerson.LNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsPhone_NumberNull() {
-                return this.IsNull(this.tablePerson.Phone_NumberColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetPhone_NumberNull() {
-                this[this.tablePerson.Phone_NumberColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsEmailNull() {
-                return this.IsNull(this.tablePerson.EmailColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetEmailNull() {
-                this[this.tablePerson.EmailColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsReward_PointsNull() {
-                return this.IsNull(this.tablePerson.Reward_PointsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetReward_PointsNull() {
-                this[this.tablePerson.Reward_PointsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsIs_TeacherNull() {
-                return this.IsNull(this.tablePerson.Is_TeacherColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetIs_TeacherNull() {
-                this[this.tablePerson.Is_TeacherColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsIs_AdminNull() {
-                return this.IsNull(this.tablePerson.Is_AdminColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetIs_AdminNull() {
-                this[this.tablePerson.Is_AdminColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsIs_SeniorNull() {
-                return this.IsNull(this.tablePerson.Is_SeniorColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetIs_SeniorNull() {
-                this[this.tablePerson.Is_SeniorColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsIs_VeteranNull() {
-                return this.IsNull(this.tablePerson.Is_VeteranColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetIs_VeteranNull() {
-                this[this.tablePerson.Is_VeteranColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsPasswordNull() {
-                return this.IsNull(this.tablePerson.PasswordColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetPasswordNull() {
-                this[this.tablePerson.PasswordColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2816,34 +2657,27 @@ SELECT InvID, ProdID, PerID, [Date Of Invoice], [Amount Of Product], [Is Paid Fo
             tableMapping.ColumnMappings.Add("Is_Admin", "Is_Admin");
             tableMapping.ColumnMappings.Add("Is_Senior", "Is_Senior");
             tableMapping.ColumnMappings.Add("Is_Veteran", "Is_Veteran");
+            tableMapping.ColumnMappings.Add("password", "password");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Person] WHERE (([PerID] = @Original_PerID) AND ((@IsNull_FName = 1 AND [FName] IS NULL) OR ([FName] = @Original_FName)) AND ((@IsNull_LName = 1 AND [LName] IS NULL) OR ([LName] = @Original_LName)) AND ((@IsNull_Phone_Number = 1 AND [Phone Number] IS NULL) OR ([Phone Number] = @Original_Phone_Number)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_Reward_Points = 1 AND [Reward Points] IS NULL) OR ([Reward Points] = @Original_Reward_Points)) AND ((@IsNull_Is_Teacher = 1 AND [Is_Teacher] IS NULL) OR ([Is_Teacher] = @Original_Is_Teacher)) AND ((@IsNull_Is_Admin = 1 AND [Is_Admin] IS NULL) OR ([Is_Admin] = @Original_Is_Admin)) AND ((@IsNull_Is_Senior = 1 AND [Is_Senior] IS NULL) OR ([Is_Senior] = @Original_Is_Senior)) AND ((@IsNull_Is_Veteran = 1 AND [Is_Veteran] IS NULL) OR ([Is_Veteran] = @Original_Is_Veteran)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Person] WHERE (([PerID] = @Original_PerID) AND ([FName] = @Original_FName) AND ([LName] = @Original_LName) AND ([Phone Number] = @Original_Phone_Number) AND ([Email] = @Original_Email) AND ([Reward Points] = @Original_Reward_Points) AND ([Is_Teacher] = @Original_Is_Teacher) AND ([Is_Admin] = @Original_Is_Admin) AND ([Is_Senior] = @Original_Is_Senior) AND ([Is_Veteran] = @Original_Is_Veteran) AND ([password] = @Original_password))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Phone_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Number", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Phone_Number", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Email", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Reward_Points", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reward Points", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Reward_Points", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reward Points", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Is_Teacher", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Teacher", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Is_Teacher", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Teacher", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Is_Admin", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Admin", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Is_Admin", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Admin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Is_Senior", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Senior", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Is_Senior", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Senior", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Is_Veteran", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Veteran", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Is_Veteran", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Veteran", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Person] ([FName], [LName], [Phone Number], [Email], [Reward Points], [Is_Teacher], [Is_Admin], [Is_Senior], [Is_Veteran]) VALUES (@FName, @LName, @Phone_Number, @Email, @Reward_Points, @Is_Teacher, @Is_Admin, @Is_Senior, @Is_Veteran);
-SELECT PerID, FName, LName, [Phone Number], Email, [Reward Points], Is_Teacher, Is_Admin, Is_Senior, Is_Veteran FROM Person WHERE (PerID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Person] ([FName], [LName], [Phone Number], [Email], [Reward Points], [Is_Teacher], [Is_Admin], [Is_Senior], [Is_Veteran], [password]) VALUES (@FName, @LName, @Phone_Number, @Email, @Reward_Points, @Is_Teacher, @Is_Admin, @Is_Senior, @Is_Veteran, @password);
+SELECT PerID, FName, LName, [Phone Number], Email, [Reward Points], Is_Teacher, Is_Admin, Is_Senior, Is_Veteran, password FROM Person WHERE (PerID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2854,10 +2688,11 @@ SELECT PerID, FName, LName, [Phone Number], Email, [Reward Points], Is_Teacher, 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Is_Admin", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Admin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Is_Senior", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Senior", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Is_Veteran", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Veteran", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Person] SET [FName] = @FName, [LName] = @LName, [Phone Number] = @Phone_Number, [Email] = @Email, [Reward Points] = @Reward_Points, [Is_Teacher] = @Is_Teacher, [Is_Admin] = @Is_Admin, [Is_Senior] = @Is_Senior, [Is_Veteran] = @Is_Veteran WHERE (([PerID] = @Original_PerID) AND ((@IsNull_FName = 1 AND [FName] IS NULL) OR ([FName] = @Original_FName)) AND ((@IsNull_LName = 1 AND [LName] IS NULL) OR ([LName] = @Original_LName)) AND ((@IsNull_Phone_Number = 1 AND [Phone Number] IS NULL) OR ([Phone Number] = @Original_Phone_Number)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_Reward_Points = 1 AND [Reward Points] IS NULL) OR ([Reward Points] = @Original_Reward_Points)) AND ((@IsNull_Is_Teacher = 1 AND [Is_Teacher] IS NULL) OR ([Is_Teacher] = @Original_Is_Teacher)) AND ((@IsNull_Is_Admin = 1 AND [Is_Admin] IS NULL) OR ([Is_Admin] = @Original_Is_Admin)) AND ((@IsNull_Is_Senior = 1 AND [Is_Senior] IS NULL) OR ([Is_Senior] = @Original_Is_Senior)) AND ((@IsNull_Is_Veteran = 1 AND [Is_Veteran] IS NULL) OR ([Is_Veteran] = @Original_Is_Veteran)));
-SELECT PerID, FName, LName, [Phone Number], Email, [Reward Points], Is_Teacher, Is_Admin, Is_Senior, Is_Veteran FROM Person WHERE (PerID = @PerID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Person] SET [FName] = @FName, [LName] = @LName, [Phone Number] = @Phone_Number, [Email] = @Email, [Reward Points] = @Reward_Points, [Is_Teacher] = @Is_Teacher, [Is_Admin] = @Is_Admin, [Is_Senior] = @Is_Senior, [Is_Veteran] = @Is_Veteran, [password] = @password WHERE (([PerID] = @Original_PerID) AND ([FName] = @Original_FName) AND ([LName] = @Original_LName) AND ([Phone Number] = @Original_Phone_Number) AND ([Email] = @Original_Email) AND ([Reward Points] = @Original_Reward_Points) AND ([Is_Teacher] = @Original_Is_Teacher) AND ([Is_Admin] = @Original_Is_Admin) AND ([Is_Senior] = @Original_Is_Senior) AND ([Is_Veteran] = @Original_Is_Veteran) AND ([password] = @Original_password));
+SELECT PerID, FName, LName, [Phone Number], Email, [Reward Points], Is_Teacher, Is_Admin, Is_Senior, Is_Veteran, password FROM Person WHERE (PerID = @PerID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2868,25 +2703,18 @@ SELECT PerID, FName, LName, [Phone Number], Email, [Reward Points], Is_Teacher, 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Is_Admin", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Admin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Is_Senior", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Senior", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Is_Veteran", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Veteran", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Phone_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Number", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Phone_Number", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Email", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Reward_Points", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reward Points", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Reward_Points", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reward Points", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Is_Teacher", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Teacher", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Is_Teacher", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Teacher", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Is_Admin", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Admin", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Is_Admin", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Admin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Is_Senior", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Senior", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Is_Senior", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Senior", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Is_Veteran", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Veteran", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Is_Veteran", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Is_Veteran", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PerID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -2904,7 +2732,7 @@ SELECT PerID, FName, LName, [Phone Number], Email, [Reward Points], Is_Teacher, 
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PerID, FName, LName, [Phone Number], Email, [Reward Points], Is_Teacher, I" +
-                "s_Admin, Is_Senior, Is_Veteran FROM dbo.Person";
+                "s_Admin, Is_Senior, Is_Veteran, password FROM Person";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2965,79 +2793,42 @@ SELECT PerID, FName, LName, [Phone Number], Email, [Reward Points], Is_Teacher, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_PerID, string Original_FName, string Original_LName, string Original_Phone_Number, string Original_Email, global::System.Nullable<int> Original_Reward_Points, global::System.Nullable<bool> Original_Is_Teacher, global::System.Nullable<bool> Original_Is_Admin, global::System.Nullable<bool> Original_Is_Senior, global::System.Nullable<bool> Original_Is_Veteran) {
+        public virtual int Delete(int Original_PerID, string Original_FName, string Original_LName, string Original_Phone_Number, string Original_Email, int Original_Reward_Points, bool Original_Is_Teacher, bool Original_Is_Admin, bool Original_Is_Senior, bool Original_Is_Veteran, string Original_password) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PerID));
             if ((Original_FName == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_FName");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_FName));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_FName));
             }
             if ((Original_LName == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_LName");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_LName));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_LName));
             }
             if ((Original_Phone_Number == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_Phone_Number");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Phone_Number));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Phone_Number));
             }
             if ((Original_Email == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_Email");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Email));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Email));
             }
-            if ((Original_Reward_Points.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_Reward_Points.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Is_Teacher.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((bool)(Original_Is_Teacher.Value));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_Reward_Points));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((bool)(Original_Is_Teacher));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((bool)(Original_Is_Admin));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((bool)(Original_Is_Senior));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((bool)(Original_Is_Veteran));
+            if ((Original_password == null)) {
+                throw new global::System.ArgumentNullException("Original_password");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Is_Admin.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((bool)(Original_Is_Admin.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Is_Senior.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((bool)(Original_Is_Senior.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Is_Veteran.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((bool)(Original_Is_Veteran.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_password));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3059,60 +2850,41 @@ SELECT PerID, FName, LName, [Phone Number], Email, [Reward Points], Is_Teacher, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string FName, string LName, string Phone_Number, string Email, global::System.Nullable<int> Reward_Points, global::System.Nullable<bool> Is_Teacher, global::System.Nullable<bool> Is_Admin, global::System.Nullable<bool> Is_Senior, global::System.Nullable<bool> Is_Veteran) {
+        public virtual int Insert(string FName, string LName, string Phone_Number, string Email, int Reward_Points, bool Is_Teacher, bool Is_Admin, bool Is_Senior, bool Is_Veteran, string password) {
             if ((FName == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("FName");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(FName));
             }
             if ((LName == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("LName");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(LName));
             }
             if ((Phone_Number == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Phone_Number");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Phone_Number));
             }
             if ((Email == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Email");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Email));
             }
-            if ((Reward_Points.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Reward_Points.Value));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Reward_Points));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(Is_Teacher));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(Is_Admin));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(Is_Senior));
+            this.Adapter.InsertCommand.Parameters[8].Value = ((bool)(Is_Veteran));
+            if ((password == null)) {
+                throw new global::System.ArgumentNullException("password");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Is_Teacher.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(Is_Teacher.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Is_Admin.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(Is_Admin.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Is_Senior.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(Is_Senior.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((Is_Veteran.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((bool)(Is_Veteran.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(password));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3139,150 +2911,96 @@ SELECT PerID, FName, LName, [Phone Number], Email, [Reward Points], Is_Teacher, 
                     string LName, 
                     string Phone_Number, 
                     string Email, 
-                    global::System.Nullable<int> Reward_Points, 
-                    global::System.Nullable<bool> Is_Teacher, 
-                    global::System.Nullable<bool> Is_Admin, 
-                    global::System.Nullable<bool> Is_Senior, 
-                    global::System.Nullable<bool> Is_Veteran, 
+                    int Reward_Points, 
+                    bool Is_Teacher, 
+                    bool Is_Admin, 
+                    bool Is_Senior, 
+                    bool Is_Veteran, 
+                    string password, 
                     int Original_PerID, 
                     string Original_FName, 
                     string Original_LName, 
                     string Original_Phone_Number, 
                     string Original_Email, 
-                    global::System.Nullable<int> Original_Reward_Points, 
-                    global::System.Nullable<bool> Original_Is_Teacher, 
-                    global::System.Nullable<bool> Original_Is_Admin, 
-                    global::System.Nullable<bool> Original_Is_Senior, 
-                    global::System.Nullable<bool> Original_Is_Veteran, 
+                    int Original_Reward_Points, 
+                    bool Original_Is_Teacher, 
+                    bool Original_Is_Admin, 
+                    bool Original_Is_Senior, 
+                    bool Original_Is_Veteran, 
+                    string Original_password, 
                     int PerID) {
             if ((FName == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("FName");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(FName));
             }
             if ((LName == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("LName");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(LName));
             }
             if ((Phone_Number == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Phone_Number");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Phone_Number));
             }
             if ((Email == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Email");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Email));
             }
-            if ((Reward_Points.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Reward_Points.Value));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Reward_Points));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(Is_Teacher));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(Is_Admin));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(Is_Senior));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((bool)(Is_Veteran));
+            if ((password == null)) {
+                throw new global::System.ArgumentNullException("password");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(password));
             }
-            if ((Is_Teacher.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(Is_Teacher.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Is_Admin.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(Is_Admin.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Is_Senior.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(Is_Senior.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((Is_Veteran.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((bool)(Is_Veteran.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_PerID));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_PerID));
             if ((Original_FName == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_FName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_FName));
             }
             if ((Original_LName == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_LName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_LName));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_LName));
             }
             if ((Original_Phone_Number == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_Phone_Number");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Phone_Number));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Phone_Number));
             }
             if ((Original_Email == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_Email");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Email));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Email));
             }
-            if ((Original_Reward_Points.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_Reward_Points.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Is_Teacher.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((bool)(Original_Is_Teacher.Value));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_Reward_Points));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((bool)(Original_Is_Teacher));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((bool)(Original_Is_Admin));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((bool)(Original_Is_Senior));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((bool)(Original_Is_Veteran));
+            if ((Original_password == null)) {
+                throw new global::System.ArgumentNullException("Original_password");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_password));
             }
-            if ((Original_Is_Admin.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((bool)(Original_Is_Admin.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Is_Senior.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((bool)(Original_Is_Senior.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Is_Veteran.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((bool)(Original_Is_Veteran.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(PerID));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(PerID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3308,22 +3026,24 @@ SELECT PerID, FName, LName, [Phone Number], Email, [Reward Points], Is_Teacher, 
                     string LName, 
                     string Phone_Number, 
                     string Email, 
-                    global::System.Nullable<int> Reward_Points, 
-                    global::System.Nullable<bool> Is_Teacher, 
-                    global::System.Nullable<bool> Is_Admin, 
-                    global::System.Nullable<bool> Is_Senior, 
-                    global::System.Nullable<bool> Is_Veteran, 
+                    int Reward_Points, 
+                    bool Is_Teacher, 
+                    bool Is_Admin, 
+                    bool Is_Senior, 
+                    bool Is_Veteran, 
+                    string password, 
                     int Original_PerID, 
                     string Original_FName, 
                     string Original_LName, 
                     string Original_Phone_Number, 
                     string Original_Email, 
-                    global::System.Nullable<int> Original_Reward_Points, 
-                    global::System.Nullable<bool> Original_Is_Teacher, 
-                    global::System.Nullable<bool> Original_Is_Admin, 
-                    global::System.Nullable<bool> Original_Is_Senior, 
-                    global::System.Nullable<bool> Original_Is_Veteran) {
-            return this.Update(FName, LName, Phone_Number, Email, Reward_Points, Is_Teacher, Is_Admin, Is_Senior, Is_Veteran, Original_PerID, Original_FName, Original_LName, Original_Phone_Number, Original_Email, Original_Reward_Points, Original_Is_Teacher, Original_Is_Admin, Original_Is_Senior, Original_Is_Veteran, Original_PerID);
+                    int Original_Reward_Points, 
+                    bool Original_Is_Teacher, 
+                    bool Original_Is_Admin, 
+                    bool Original_Is_Senior, 
+                    bool Original_Is_Veteran, 
+                    string Original_password) {
+            return this.Update(FName, LName, Phone_Number, Email, Reward_Points, Is_Teacher, Is_Admin, Is_Senior, Is_Veteran, password, Original_PerID, Original_FName, Original_LName, Original_Phone_Number, Original_Email, Original_Reward_Points, Original_Is_Teacher, Original_Is_Admin, Original_Is_Senior, Original_Is_Veteran, Original_password, Original_PerID);
         }
     }
     

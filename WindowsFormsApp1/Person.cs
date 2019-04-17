@@ -6,7 +6,7 @@ namespace Retalo
     public class Person : Item
     {
 
-        private int reward_point = 0;
+        private int reward_point;
 
         public String FName
         {
@@ -27,6 +27,12 @@ namespace Retalo
         }
 
         public String Email
+        {
+            get;
+            set;
+        }
+
+        public String Password
         {
             get;
             set;
@@ -58,7 +64,10 @@ namespace Retalo
 
         public int Reward_Points
         {
-            get;
+            get
+            {
+                return reward_point;
+            }
 
         }
 

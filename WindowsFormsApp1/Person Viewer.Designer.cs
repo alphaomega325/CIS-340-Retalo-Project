@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.retalo_DBDataSet = new Retalo.Retalo_DBDataSet();
+            this.personTableAdapter = new Retalo.Retalo_DBDataSetTableAdapters.PersonTableAdapter();
             this.perIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,9 +43,6 @@
             this.isAdminDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.isSeniorDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.isVeteranDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.retalo_DBDataSet = new Retalo.Retalo_DBDataSet();
-            this.personTableAdapter = new Retalo.Retalo_DBDataSetTableAdapters.PersonTableAdapter();
             this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
@@ -74,6 +74,20 @@
             this.dataGridView1.Size = new System.Drawing.Size(719, 340);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // personBindingSource
+            // 
+            this.personBindingSource.DataMember = "Person";
+            this.personBindingSource.DataSource = this.retalo_DBDataSet;
+            // 
+            // retalo_DBDataSet
+            // 
+            this.retalo_DBDataSet.DataSetName = "Retalo_DBDataSet";
+            this.retalo_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // personTableAdapter
+            // 
+            this.personTableAdapter.ClearBeforeFill = true;
             // 
             // perIDDataGridViewTextBoxColumn
             // 
@@ -145,23 +159,9 @@
             this.isVeteranDataGridViewCheckBoxColumn.Name = "isVeteranDataGridViewCheckBoxColumn";
             this.isVeteranDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
-            // personBindingSource
-            // 
-            this.personBindingSource.DataMember = "Person";
-            this.personBindingSource.DataSource = this.retalo_DBDataSet;
-            // 
-            // retalo_DBDataSet
-            // 
-            this.retalo_DBDataSet.DataSetName = "Retalo_DBDataSet";
-            this.retalo_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // personTableAdapter
-            // 
-            this.personTableAdapter.ClearBeforeFill = true;
-            // 
             // Password
             // 
-            this.Password.DataPropertyName = "Password";
+            this.Password.DataPropertyName = "password";
             this.Password.HeaderText = "Password";
             this.Password.Name = "Password";
             this.Password.ReadOnly = true;
