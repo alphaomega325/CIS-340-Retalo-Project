@@ -6,8 +6,8 @@ namespace Retalo
     public class Item
     {
 
-	public string Name{
-	        get;    
+    public string Name{
+	        get;
             set;
 	}
 	

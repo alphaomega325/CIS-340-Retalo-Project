@@ -5,7 +5,7 @@ namespace Retalo
 
     public class Person : Item
     {
-
+        
         private int reward_point;
 
         public String FName

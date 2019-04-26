@@ -52,7 +52,8 @@ namespace Retalo
         private void Submitbtn_Click(object sender, EventArgs e)
         {
             if (PersonObjectFill()){
-                if (PersonOperations.AddorUpdatePerson(person))
+               // if (PersonOperations.AddorUpdatePerson(person))
+                if(DatabaseOperation.AddorUpdateItem<Person>(person.ID, "Person", Person))
                 {
                     MessageBox.Show("Addition or modification is a success");
                 }
@@ -69,7 +70,7 @@ namespace Retalo
             int perid = 0;
             if (Int32.TryParse(IDtxt.Text, out perid))
             {
-                person = PersonOperations.ReturnPerson(perid);
+                person = DatabaseOperation.ReturnItem(perid, "Person");
                 if (person != null)
                 {
                     IDtxt.Text = person.ID.ToString();

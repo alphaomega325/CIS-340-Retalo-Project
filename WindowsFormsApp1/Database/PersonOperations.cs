@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -11,23 +7,17 @@ namespace Retalo
     public static class PersonOperations
     {
 
-        public static Person ReturnPerson(int id)
+        public static Person ReturnPerson(SqlCommand selectCommand, SqlConnection connect)
         {
-            SqlConnection connect = RetaloDB.GetConnection();
-            string selectStatement 
-                = "SELECT *" 
-                + "FROM Person WHERE PerID = @id";
 
-            SqlCommand selectCommand = new SqlCommand(selectStatement, connect);
-            selectCommand.Parameters.AddWithValue("@id", id);
-
+            Person person = new Person();
             try
             {
+
                 connect.Open();
                 SqlDataReader personReader = selectCommand.ExecuteReader(CommandBehavior.SingleRow);
                 if (personReader.Read())
                 {
-                    Person person = new Person();
                     person.ID = (int)personReader["PerID"];
                     person.FName = personReader["Fname"].ToString();
                     person.LName = personReader["Lname"].ToString();
@@ -43,83 +33,34 @@ namespace Retalo
                     person.IsVeteran = (Boolean)personReader["Is_Veteran"];
                     person.Password = personReader["password"].ToString();
 
-                    return person;
+
                 }
                 else
                 {
-                    return null;
+                    person = null;
                 }
 
-
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
-
             }
             finally
             {
                 connect.Close();
+
             }
+
+            return person;
 
 
         }
 
-        public static Boolean DeletePerson(int id)
-        {
-
-            if (ReturnPerson(id) == null)
-            {
-                return false;
-
-            }
-            else
-            {
-
-                SqlConnection connection = RetaloDB.GetConnection();
-                string removestatement = "DELETE FROM Person WHERE PerID = @id";
-                SqlCommand remove = new SqlCommand(removestatement, connection);
-                remove.Parameters.AddWithValue("@id", id);
-                try
-                {
-                    connection.Open();
-                    remove.ExecuteNonQuery();
-
-
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
-                    connection.Close();
-                    
-                }
-                return true;
-            }
-
-        }
-
-	public static Boolean AddorUpdatePerson(Person person)
-	{
-            Person test = ReturnPerson(person.ID);
-
-	    if(test == null)
-	    {
-		return AddPerson(person);
-	    }
-	    else
-	    {
-		return UpdatePerson(person);
-	    }
-
-
-	}
 
 	public static Boolean AddPerson(Person person)
 	{
 
-	    if(ReturnPerson(person.ID) != null)
+	    if(DatabaseOperation.ReturnItem(person.ID, "Person") != null)
 	    {
 		return false;
 	    }
@@ -160,9 +101,9 @@ namespace Retalo
 
 	}
 
-	public static Boolean UpdatePerson(Person person)
+	public static Boolean UpdatePerson(int id, Person person)
 	{
-	    if(ReturnPerson(person.ID) == null)
+	    if(DatabaseOperation.ReturnItem(id, "Person") == null)
 	    {
 		return false;
 
