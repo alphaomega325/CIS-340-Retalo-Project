@@ -8,13 +8,13 @@ namespace Retalo
     public static class DatabaseOperation
     {
         
-        public static Object ReturnItem(int id, String database)
+        public stati ReturnItem(int id, String database)
         {
             
             SqlConnection connect = RetaloDB.GetConnection();
             string selectStatement
                 = "Select *"
-                + "FROM @database Where @idname = @id";
+                + "FROM @database Where"+ idname = @id";
             
             SqlCommand selectCommand = new SqlCommand(selectStatement, connect); 
             selectCommand.Parameters.AddWithValue("@id", id);
@@ -74,26 +74,32 @@ namespace Retalo
 
         }
 
-        public static Boolean AddorUpdateItem<T>(int id, String database, ref T item) where T : Item
+        public static Boolean AddorUpdateItem(Person person)
         {
 
-            if(typeof(T) == typeof(Person)){
 
-                Person person = (Person)item;
-                if (ReturnItem(id, database) == null)
+            try
+            {
+                if (ReturnItem(person.ID, "Person") == null)
                 {
-
-                   
                     return PersonOperations.AddPerson(person);
+
                 }
                 else
                 {
-                    return PersonOperations.UpdatePerson(id, person);
+                    return PersonOperations.UpdatePerson(person.ID, person);
                 }
             }
+            catch(Exception ex)
+            {
+                return false;
+                throw ex;
+            }
             
-            return false;
+
         }
+
+
 
 
         

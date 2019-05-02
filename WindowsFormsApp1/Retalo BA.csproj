@@ -61,6 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataRepository\Item.cs" />
+    <Compile Include="DataRepository\Person.cs" />
     <Compile Include="Invoice Viewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +98,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RetaloDB.cs" />
     <Compile Include="Database\UniversalDatabaseOperations.cs" />
+    <Compile Include="Retalo_DBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Retalo_DBDataSet1.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Invoice Viewer.resx">
       <DependentUpon>Invoice Viewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +140,17 @@
     </Compile>
     <Compile Include="DataRepository/Person.cs" />
     <Compile Include="DataRepository/Item.cs" />
+    <None Include="Retalo_DBDataSet1.xsc">
+      <DependentUpon>Retalo_DBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Retalo_DBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Retalo_DBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Retalo_DBDataSet1.xss">
+      <DependentUpon>Retalo_DBDataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
