@@ -7,27 +7,38 @@ namespace Retalo
 
     public static class DatabaseOperation
     {
-        
-        public static Person ReturnItem(int id, String database)
-        {
-            
-            SqlConnection connect = RetaloDB.GetConnection();
+
+        protected static SqlCommand Return_Sql_Select_String(string database, string id, string idname, SqlConnection connect){
+
+
             string selectStatement
                 = "Select *"
                 + "FROM @database Where"
                 + "@idname = @id";
-            
+
             SqlCommand selectCommand = new SqlCommand(selectStatement, connect); 
-            selectCommand.Parameters.AddWithValue("@id", id);
+
             selectCommand.Parameters.AddWithValue("@database", database);
-            if(database == "Person"){                
-                selectCommand.Parameters.AddWithValue("@idname", "PerID");
-                Person person = PersonOperations.ReturnPerson(selectCommand, connect);
-                return person;
+            selectCommand.Parameters.AddWithValue("@id", id);
+            selectCommand.Parameters.AddWithValue("@idname", idname);
+            return selectCommand;
+
+        }
+        
+        public static Person ReturnItem(Person person)
+        {
+            try{
+                SqlConnection connect = RetaloDB.GetConnection();
+                selectCommand = Return_Sql_Select_String("Person", person.ID, "PerID", connect);
+                Person person2 = ReturnPerson(selectCommand, connect);
+                return person2;
             }
-            else{
-                return null;
+            catch(Exception ex){
+                throw ex;
             }
+            
+            return null;
+
             
         }
 
