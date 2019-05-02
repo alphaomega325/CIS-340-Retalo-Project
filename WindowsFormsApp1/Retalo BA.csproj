@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -61,61 +61,61 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataRepository\Item.cs" />
-    <Compile Include="DataRepository\Person.cs" />
-    <Compile Include="Invoice Viewer.cs">
+    <Compile Include="Data_Objects\Item.cs" />
+    <Compile Include="Data_Objects\Person.cs" />
+    <Compile Include="FrontEnd/Invoice Viewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Invoice Viewer.Designer.cs">
+    <Compile Include="FrontEnd\Invoice Viewer.Designer.cs">
       <DependentUpon>Invoice Viewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin Main Menu.cs">
+    <Compile Include="FrontEnd\Admin Main Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin Main Menu.Designer.cs">
+    <Compile Include="FrontEnd\Admin Main Menu.Designer.cs">
       <DependentUpon>Admin Main Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Person Viewer.cs">
+    <Compile Include="FrontEnd\Person Viewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Person Viewer.Designer.cs">
+    <Compile Include="FrontEnd/Person Viewer.Designer.cs">
       <DependentUpon>Person Viewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\PersonOperations.cs" />
-    <Compile Include="Person_UpdateorAdder.cs">
+    <Compile Include="FrontEnd\Person_UpdateorAdder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Person_UpdateorAdder.Designer.cs">
+    <Compile Include="FrontEnd\Person_UpdateorAdder.Designer.cs">
       <DependentUpon>Person_UpdateorAdder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Product Viewer.cs">
+    <Compile Include="FrontEnd\Product Viewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Product Viewer.Designer.cs">
+    <Compile Include="FrontEnd\Product Viewer.Designer.cs">
       <DependentUpon>Product Viewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RetaloDB.cs" />
+    <Compile Include="Database\RetaloDB.cs" />
     <Compile Include="Database\UniversalDatabaseOperations.cs" />
     <Compile Include="Retalo_DBDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Retalo_DBDataSet1.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Invoice Viewer.resx">
+    <EmbeddedResource Include="FrontEnd\Invoice Viewer.resx">
       <DependentUpon>Invoice Viewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin Main Menu.resx">
+    <EmbeddedResource Include="FrontEnd\Admin Main Menu.resx">
       <DependentUpon>Admin Main Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Person Viewer.resx">
+    <EmbeddedResource Include="FrontEnd\Person Viewer.resx">
       <DependentUpon>Person Viewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Person_UpdateorAdder.resx">
+    <EmbeddedResource Include="FrontEnd\Person_UpdateorAdder.resx">
       <DependentUpon>Person_UpdateorAdder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Product Viewer.resx">
+    <EmbeddedResource Include="FrontEnd\Product Viewer.resx">
       <DependentUpon>Product Viewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -138,8 +138,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="DataRepository/Person.cs" />
-    <Compile Include="DataRepository/Item.cs" />
+    <Compile Include="Data_Objects/Person.cs" />
+    <Compile Include="Data_Objects/Item.cs" />
     <None Include="Retalo_DBDataSet1.xsc">
       <DependentUpon>Retalo_DBDataSet1.xsd</DependentUpon>
     </None>

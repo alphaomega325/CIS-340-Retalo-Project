@@ -8,13 +8,14 @@ namespace Retalo
     public static class DatabaseOperation
     {
         
-        public stati ReturnItem(int id, String database)
+        public static Person ReturnItem(int id, String database)
         {
             
             SqlConnection connect = RetaloDB.GetConnection();
             string selectStatement
                 = "Select *"
-                + "FROM @database Where"+ idname = @id";
+                + "FROM @database Where"
+                + "@idname = @id";
             
             SqlCommand selectCommand = new SqlCommand(selectStatement, connect); 
             selectCommand.Parameters.AddWithValue("@id", id);
