@@ -9,8 +9,10 @@ namespace Retalo
         private Decimal cost;
 
         public String Description{
+
             set;
             get;
+
         }
 
         public Decimal Cost{
@@ -36,6 +38,19 @@ namespace Retalo
 
         }
 
+        public int ProductQuantity{
+
+            get;
+            set;
+
+        }
+
+        public int ProductPurchasedQuantity{
+
+            get;
+            set;
+            
+        }
 
     }
 

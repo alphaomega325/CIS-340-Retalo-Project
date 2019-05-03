@@ -56,7 +56,7 @@ namespace Retalo
 
             get{
 
-                
+                foreach(ProductsInInvoice.Qauntity
 
             }
                 
