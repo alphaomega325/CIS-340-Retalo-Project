@@ -60,7 +60,7 @@ namespace Retalo
 	public static Boolean AddPerson(Person person)
 	{
 
-	    if(DatabaseOperation.ReturnItem(person.ID, "Person") != null)
+	    if(DatabaseOperation.ReturnItem(person) != null)
 	    {
 		return false;
 	    }
@@ -103,7 +103,7 @@ namespace Retalo
 
 	public static Boolean UpdatePerson(int id, Person person)
 	{
-	    if(DatabaseOperation.ReturnItem(id, "Person") == null)
+	    if(DatabaseOperation.ReturnItem(person) == null)
 	    {
 		return false;
 

@@ -20,7 +20,7 @@ namespace Retalo{
 
                     product.ID = (int)productReader["ProdID"];
                     product.Name =  productReader["Name"].ToString();
-                    product.Cost =  (decimal)productReader["Cost"]
+                    product.Cost = (decimal)productReader["Cost"];
                     product.ProductType =  productReader["Product Type"].ToString();
                     product.Description =  productReader["Description"].ToString();
 
@@ -50,7 +50,7 @@ namespace Retalo{
         public static Boolean AddProduct(Product product)
         {
 
-
+            return true;
 
 
 

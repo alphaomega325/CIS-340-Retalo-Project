@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -61,25 +61,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\InvoiceOperations.cs" />
+    <Compile Include="Database\ProductOperations.cs" />
+    <Compile Include="Data_Objects\Invoice.cs" />
     <Compile Include="Data_Objects\Item.cs" />
     <Compile Include="Data_Objects\Person.cs" />
-    <Compile Include="FrontEnd/Invoice Viewer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrontEnd\Invoice Viewer.Designer.cs">
-      <DependentUpon>Invoice Viewer.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Data_Objects\Product.cs" />
     <Compile Include="FrontEnd\Admin Main Menu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrontEnd\Admin Main Menu.Designer.cs">
       <DependentUpon>Admin Main Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrontEnd\Person Viewer.cs">
+    <Compile Include="FrontEnd\Invoice_Viewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrontEnd/Person Viewer.Designer.cs">
-      <DependentUpon>Person Viewer.cs</DependentUpon>
+    <Compile Include="FrontEnd\Invoice_Viewer.Designer.cs">
+      <DependentUpon>Invoice_Viewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\Person Viewer.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Database\PersonOperations.cs" />
     <Compile Include="FrontEnd\Person_UpdateorAdder.cs">
@@ -94,6 +95,12 @@
     <Compile Include="FrontEnd\Product Viewer.Designer.cs">
       <DependentUpon>Product Viewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrontEnd\Product_Adder_Updater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrontEnd\Product_Adder_Updater.Designer.cs">
+      <DependentUpon>Product_Adder_Updater.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Database\RetaloDB.cs" />
@@ -103,11 +110,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Retalo_DBDataSet1.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrontEnd\Invoice Viewer.resx">
-      <DependentUpon>Invoice Viewer.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrontEnd\Admin Main Menu.resx">
       <DependentUpon>Admin Main Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrontEnd\Invoice_Viewer.resx">
+      <DependentUpon>Invoice_Viewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrontEnd\Person Viewer.resx">
       <DependentUpon>Person Viewer.cs</DependentUpon>
@@ -138,8 +145,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Data_Objects/Person.cs" />
-    <Compile Include="Data_Objects/Item.cs" />
     <None Include="Retalo_DBDataSet1.xsc">
       <DependentUpon>Retalo_DBDataSet1.xsd</DependentUpon>
     </None>

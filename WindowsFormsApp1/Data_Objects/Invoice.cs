@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 
 namespace Retalo
@@ -7,7 +8,7 @@ namespace Retalo
     public class Invoice : Item
     {
 
-        List<int> productininvoicequanity;
+        List<int> productininvoicequanity = new List<int>();
         int totalproductininvoicequantity;
         
         public int PerID{
@@ -23,7 +24,7 @@ namespace Retalo
 
         }
 
-        public binary IsPaidFor{
+        public Boolean IsPaidFor{
             get;
             set;
         }
@@ -32,7 +33,7 @@ namespace Retalo
         public int AmountofProducts{
             get{
 
-                return ProductsInInvoice.length;
+                return ProductsInInvoice.Count;
 
             }
         }
@@ -58,14 +59,14 @@ namespace Retalo
             get{
 
                 totalproductininvoicequantity = 0;
-                foreach(ProductsInInvoice)
+                foreach(Product products in ProductsInInvoice)
                 {
-                    totalproductininvoicequantity += ProductsInInvoice.ProductPurchasedQuantity;
+                    totalproductininvoicequantity += products.GetProductPurchasedQuantity();
                 }
                 return totalproductininvoicequantity;
             }
-                
-            set;
+
+               
 
         }
 

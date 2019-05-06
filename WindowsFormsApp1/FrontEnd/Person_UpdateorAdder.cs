@@ -70,7 +70,9 @@ namespace Retalo
             int perid = 0;
             if (Int32.TryParse(IDtxt.Text, out perid))
             {
-                person = (Person)DatabaseOperation.ReturnItem(perid, "Person");
+                person = new Person();
+                person.ID = perid;
+                person = DatabaseOperation.ReturnItem(person);
                 if (person != null)
                 {
                     IDtxt.Text = person.ID.ToString();

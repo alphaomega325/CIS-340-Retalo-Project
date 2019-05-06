@@ -45,6 +45,32 @@ namespace Retalo
             
         }
 
+        public int GetProductPurchasedQuantity()
+        {
+           if(ProductPurchasedQuantity < 0)
+            {
+                ProductPurchasedQuantity = 0;
+                return 0;
+            }
+            else
+            {
+                return ProductPurchasedQuantity;
+            }
+        }
+            
+
+        public void SetProductPurchasedQuantity(int quantity)
+        {
+            if(quantity < 0)
+            {
+                ProductPurchasedQuantity = 0;
+            }
+            else
+            {
+                ProductPurchasedQuantity = quantity;
+            }
+        }
+
     }
 
 }

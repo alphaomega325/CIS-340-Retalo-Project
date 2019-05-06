@@ -31,8 +31,7 @@ namespace Retalo
 
         private void Invoice_Viewerbtn_Click(object sender, EventArgs e)
         {
-            Invoice_Viewer invoice_Viewer = new Invoice_Viewer();
-            invoice_Viewer.Show();
+
 
         }
 
