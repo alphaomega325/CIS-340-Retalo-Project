@@ -8,6 +8,7 @@ namespace Retalo
     {
 
         List<int> productininvoicequanity;
+        int totalproductininvoicequantity;
         
         public int PerID{
             get;
@@ -52,12 +53,16 @@ namespace Retalo
 
         }
 
-        public int ProductInInvoiceQuantity{
+        public int TotalProductInInvoiceQuantity{
 
             get{
 
-                foreach(ProductsInInvoice.Qauntity
-
+                totalproductininvoicequantity = 0;
+                foreach(ProductsInInvoice)
+                {
+                    totalproductininvoicequantity += ProductsInInvoice.ProductPurchasedQuantity;
+                }
+                return totalproductininvoicequantity;
             }
                 
             set;

@@ -24,7 +24,7 @@ namespace Retalo
             }
 
             set{
-               
+
                 cost = value;
             }
 
@@ -32,13 +32,6 @@ namespace Retalo
 
 
         public String ProductType{
-
-            get;
-            set;
-
-        }
-
-        public int ProductQuantity{
 
             get;
             set;

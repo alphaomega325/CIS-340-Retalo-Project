@@ -42,6 +42,24 @@ namespace Retalo
             
         }
 
+        public static Product ReturnItem(Product product)
+        {
+            try{
+                SqlConnection connect = RetaloDB.GetConnection();
+                selectCommand = Return_Sql_Select_String("Product", product.ID, "ProdID", connect);
+                Product product2 = ReturnProduct(selectCommand, connect);
+                return product2;
+            }
+            catch(Exception ex){
+                throw ex;
+            }
+            
+            return null;
+
+            
+        }
+
+        
         public static Boolean DeleteItem(int id, String database){
             
             if (ReturnItem(id, database) == null)

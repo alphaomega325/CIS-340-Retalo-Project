@@ -12,10 +12,20 @@ namespace Retalo{
             Product product = new Product();
 
             try{
-
+                
                 connect.Open();
                 SqlDataReader productReader = selectCommand.ExecuteReader(CommandBehavior.SingleRow);
+                if (productReader.Read())
+                {
 
+                    product.ID = (int)productReader["ProdID"];
+                    product.Name =  productReader["Name"].ToString();
+                    product.Cost =  (decimal)productReader["Cost"]
+                    product.ProductType =  productReader["Product Type"].ToString();
+                    product.Description =  productReader["Description"].ToString();
+
+
+                }
 
 
 
@@ -37,7 +47,14 @@ namespace Retalo{
 
         }
         
+        public static Boolean AddProduct(Product product)
+        {
 
+
+
+
+
+        }
 
 
     }
