@@ -32,13 +32,23 @@ namespace Retalo
         private void Invoice_Viewerbtn_Click(object sender, EventArgs e)
         {
 
+            Invoice_Viewer invoice_viewer = new Invoice_Viewer();
+            invoice_viewer.Show();
+
 
         }
 
-        private void Personupdatorbtn_Click(object sender, EventArgs e)
+    private void Personupdatorbtn_Click(object sender, EventArgs e)
         {
             Person_UpdateorAdder person_updator = new Person_UpdateorAdder();
             person_updator.Show();
+        }
+
+        private void Productupdatorbtn_Click(object sender, EventArgs e)
+        {
+            Product_Updator_or_Adder product_updator = new Product_Updator_or_Adder();
+            product_updator.Show();
+
         }
     }
 }

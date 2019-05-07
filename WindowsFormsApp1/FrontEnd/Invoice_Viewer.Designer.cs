@@ -1,4 +1,4 @@
-﻿namespace Retalo.FrontEnd
+﻿namespace Retalo
 {
     partial class Invoice_Viewer
     {

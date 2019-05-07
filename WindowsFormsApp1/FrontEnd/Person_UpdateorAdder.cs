@@ -108,5 +108,10 @@ namespace Retalo
                 MessageBox.Show("ID doesn't exist, can't delete");
             }
         }
+
+        private void Person_UpdateorAdder_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

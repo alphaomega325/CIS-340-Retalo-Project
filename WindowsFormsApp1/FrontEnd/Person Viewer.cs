@@ -50,9 +50,6 @@ namespace Retalo
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.retalo_DBDataSet = new Retalo.Retalo_DBDataSet();
-            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.personTableAdapter = new Retalo.Retalo_DBDataSetTableAdapters.PersonTableAdapter();
             this.perIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,9 +61,12 @@ namespace Retalo
             this.isSeniorDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.isVeteranDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.retalo_DBDataSet = new Retalo.Retalo_DBDataSet();
+            this.personTableAdapter = new Retalo.Retalo_DBDataSetTableAdapters.PersonTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.retalo_DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.retalo_DBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -90,20 +90,7 @@ namespace Retalo
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1143, 492);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // retalo_DBDataSet
-            // 
-            this.retalo_DBDataSet.DataSetName = "Retalo_DBDataSet";
-            this.retalo_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // personBindingSource
-            // 
-            this.personBindingSource.DataMember = "Person";
-            this.personBindingSource.DataSource = this.retalo_DBDataSet;
-            // 
-            // personTableAdapter
-            // 
-            this.personTableAdapter.ClearBeforeFill = true;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // perIDDataGridViewTextBoxColumn
             // 
@@ -172,15 +159,29 @@ namespace Retalo
             this.passwordDataGridViewTextBoxColumn.HeaderText = "password";
             this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
             // 
+            // personBindingSource
+            // 
+            this.personBindingSource.DataMember = "Person";
+            this.personBindingSource.DataSource = this.retalo_DBDataSet;
+            // 
+            // retalo_DBDataSet
+            // 
+            this.retalo_DBDataSet.DataSetName = "Retalo_DBDataSet";
+            this.retalo_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // personTableAdapter
+            // 
+            this.personTableAdapter.ClearBeforeFill = true;
+            // 
             // Person_Viewer
             // 
-            this.ClientSize = new System.Drawing.Size(1373, 516);
+            this.ClientSize = new System.Drawing.Size(1173, 516);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Person_Viewer";
             this.Load += new System.EventHandler(this.Person_Viewer_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.retalo_DBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.retalo_DBDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -191,6 +192,11 @@ namespace Retalo
             this.personTableAdapter.Fill(this.retalo_DBDataSet.Person);
             // TODO: This line of code loads data into the 'retalo_DBDataSet1.Person' table. You can move, or remove it, as needed.
           //  this.personTableAdapter.Fill(this.retalo_DBDataSet1.Person);
+
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

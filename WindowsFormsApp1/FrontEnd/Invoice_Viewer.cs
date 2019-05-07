@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Retalo.FrontEnd
+namespace Retalo
 {
     public partial class Invoice_Viewer : Form
     {

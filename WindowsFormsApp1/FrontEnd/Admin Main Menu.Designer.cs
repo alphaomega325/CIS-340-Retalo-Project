@@ -32,6 +32,7 @@
             this.Product_viewerbtn = new System.Windows.Forms.Button();
             this.Invoice_Viewerbtn = new System.Windows.Forms.Button();
             this.Personupdatorbtn = new System.Windows.Forms.Button();
+            this.Productupdatorbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Person_Viewerbtn
@@ -74,11 +75,22 @@
             this.Personupdatorbtn.UseVisualStyleBackColor = true;
             this.Personupdatorbtn.Click += new System.EventHandler(this.Personupdatorbtn_Click);
             // 
+            // Productupdatorbtn
+            // 
+            this.Productupdatorbtn.Location = new System.Drawing.Point(264, 260);
+            this.Productupdatorbtn.Name = "Productupdatorbtn";
+            this.Productupdatorbtn.Size = new System.Drawing.Size(175, 23);
+            this.Productupdatorbtn.TabIndex = 4;
+            this.Productupdatorbtn.Text = "Product Updator Or Adder";
+            this.Productupdatorbtn.UseVisualStyleBackColor = true;
+            this.Productupdatorbtn.Click += new System.EventHandler(this.Productupdatorbtn_Click);
+            // 
             // Admin_Main_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Productupdatorbtn);
             this.Controls.Add(this.Personupdatorbtn);
             this.Controls.Add(this.Invoice_Viewerbtn);
             this.Controls.Add(this.Product_viewerbtn);
@@ -95,5 +107,6 @@
         private System.Windows.Forms.Button Product_viewerbtn;
         private System.Windows.Forms.Button Invoice_Viewerbtn;
         private System.Windows.Forms.Button Personupdatorbtn;
+        private System.Windows.Forms.Button Productupdatorbtn;
     }
 }

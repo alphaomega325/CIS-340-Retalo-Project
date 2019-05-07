@@ -7,7 +7,7 @@ namespace Retalo
 
     public static class DatabaseOperation
     {
-
+/*
         public static SqlCommand Return_Sql_Select_String(string database, int id, string idname, SqlConnection connect){
 
 
@@ -24,22 +24,26 @@ namespace Retalo
 
         }
         
-
+    */
         public static Person ReturnItem(Person person)
         {
-            if(person.ID == null)
+            if(person.ID.ToString() == "")
             {
-                person.Name = "Error, null return Item";
+                person = null;
                 return person;
 
             }
 
             try{
                 SqlConnection connect = RetaloDB.GetConnection();
-                
 
-
-                SqlCommand selectCommand = Return_Sql_Select_String("Person", person.ID, "PerID", connect);
+                string selectStatement =
+               "Select *"
+               + "FROM Person"
+               + " Where PerID = @id";
+                SqlCommand selectCommand = new SqlCommand(selectStatement, connect);
+                selectCommand.Parameters.AddWithValue("@id", person.ID);
+                // SqlCommand selectCommand = Return_Sql_Select_String("Person", person.ID, "PerID", connect);
                 Person person2 = PersonOperations.ReturnPerson(selectCommand, connect);
                 return person2;
             }
@@ -55,8 +59,17 @@ namespace Retalo
         {
             try{
                 SqlConnection connect = RetaloDB.GetConnection();
-                SqlCommand selectCommand = new SqlCommand();
-                selectCommand = Return_Sql_Select_String("Product", product.ID, "ProdID", connect);
+
+
+                string selectStatement =
+               "Select *"
+               + "FROM Products"
+               + " Where ProdID = @id";
+                SqlCommand selectCommand = new SqlCommand(selectStatement, connect);
+                selectCommand.Parameters.AddWithValue("@id", product.ID);
+
+               
+               // selectCommand = Return_Sql_Select_String("Product", product.ID, "ProdID", connect);
                 Product product2 = ProductOperations.ReturnProduct(selectCommand, connect);
                 return product2;
             }
@@ -89,10 +102,11 @@ namespace Retalo
             
  
             SqlConnection connection = RetaloDB.GetConnection();
-            string removestatement = "DELETE FROM @database WHERE @idname = @id";
+            string removestatement = 
+                "DELETE FROM " + database +" WHERE @idname = @id";
             SqlCommand remove = new SqlCommand(removestatement, connection);
             remove.Parameters.AddWithValue("@id", id);
-            remove.Parameters.AddWithValue("@database", database);
+            //remove.Parameters.AddWithValue("@database", database);
             if(database == "Person"){
                   remove.Parameters.AddWithValue("@idname", "PerID");        
             }
