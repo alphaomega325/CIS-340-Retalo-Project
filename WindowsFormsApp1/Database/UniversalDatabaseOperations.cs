@@ -99,14 +99,15 @@ namespace Retalo
                     return false;
 
                 }
+                else
+                {
+                    string removestatement =
+                    "DELETE FROM " + database + " WHERE PerID = @id";
+                    remove = new SqlCommand(removestatement, connection);
+                    remove.Parameters.AddWithValue("@id", id);
 
-                string removestatement =
-                "DELETE FROM " + database + " WHERE PerID = @id";
-                remove = new SqlCommand(removestatement, connection);
-                remove.Parameters.AddWithValue("@id", id);
-
-                return DeleteItemAction(remove, connection);
-
+                    return DeleteItemAction(remove, connection);
+                }
 
             }
 
