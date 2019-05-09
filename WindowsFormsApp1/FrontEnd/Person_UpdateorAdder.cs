@@ -27,24 +27,31 @@ namespace Retalo
                 person = new Person();
 
 
-                if(Int32.TryParse(IDtxt.Text, out int id))
+                if (Int32.TryParse(IDtxt.Text, out int id))
                 {
                     person.ID = id;
+
+                    person.FName = FNametxt.Text;
+                    person.LName = LNametxt.Text;
+                    person.Email = Emailtxt.Text;
+                    person.Phone_Number = Phonetxt.Text;
+                    person.Set_Reward_Points(reward);
+                    person.Password = Passwordtxt.Text;
+                    person.IsTeacher = Isteacherchkbx.Checked;
+                    person.IsSenior = Isseniorchkbx.Checked;
+                    person.IsVeteran = Isveteranchkbx.Checked;
+                    person.IsAdmin = Isadminchkbx.Checked;
+                    return true;
                 }
-                person.FName = FNametxt.Text;
-                person.LName = LNametxt.Text;
-                person.Email = Emailtxt.Text;
-                person.Phone_Number = Phonetxt.Text;
-                person.Set_Reward_Points(reward);
-                person.Password = Passwordtxt.Text;
-                person.IsTeacher = Isteacherchkbx.Checked;
-                person.IsSenior = Isseniorchkbx.Checked;
-                person.IsVeteran = Isveteranchkbx.Checked;
-                person.IsAdmin = Isadminchkbx.Checked;
-                return true;
+                else
+                {
+                    MessageBox.Show("Unable to parse, id.  The id has to be a number.");
+                    return false;
+                }
             }
             else
             {
+                MessageBox.Show("Unable to parse reward points, need to have the reward points be numbers.");
                 return false;
             }
 	}
@@ -55,11 +62,11 @@ namespace Retalo
                // if (PersonOperations.AddorUpdatePerson(person))
                 if(DatabaseOperation.AddorUpdateItem(person))
                 {
-                    MessageBox.Show("Addition or modification is a success");
+                    MessageBox.Show("Addition or modification to the database is a success");
                 }
                 else
                 {
-                    MessageBox.Show("Addition or modification wasn't a success");
+                    MessageBox.Show("Unable to add or modify the database, please try again later");
                 }
             }
 
@@ -89,6 +96,7 @@ namespace Retalo
                 }
                 else
                 {
+                    Reset_Text();
                     MessageBox.Show("You have selected a empty id, you can now fill it.");
                 }
             }
@@ -109,8 +117,20 @@ namespace Retalo
             }
         }
 
-        private void Person_UpdateorAdder_Load(object sender, EventArgs e)
+        private void Reset_Text()
         {
+            IDtxt.Text = "";
+            FNametxt.Text = "";
+            LNametxt.Text = "";
+            Phonetxt.Text = "";
+            Emailtxt.Text = "";
+            Rewardptstxt.Text = "";
+            Passwordtxt.Text = "";
+            Isteacherchkbx.Checked = false;
+            Isseniorchkbx.Checked = false;
+            Isveteranchkbx.Checked = false;
+            Isadminchkbx.Checked = false;
+
 
         }
     }

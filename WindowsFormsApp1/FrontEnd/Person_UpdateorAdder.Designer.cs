@@ -261,7 +261,6 @@
             this.Controls.Add(this.idlbl);
             this.Name = "Person_UpdateorAdder";
             this.Text = "Person_UpdateorAdder";
-            this.Load += new System.EventHandler(this.Person_UpdateorAdder_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
