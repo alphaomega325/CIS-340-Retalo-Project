@@ -120,8 +120,31 @@ namespace Retalo
                 return false;
                 throw ex;
             }
-            
 
         }
+
+        public static Boolean AddorUpdateItem(Product product)
+        {
+
+            try
+            {
+                if (ReturnItem(product) == null)
+                {
+                    return ProductOperations.AddProduct(product);
+                }
+                else
+                {
+                    return ProductOperations.UpdateProduct(product.ID, product);
+                }
+            }
+            catch(Exception ex)
+            {
+                return false;
+                throw ex;
+            }
+
+        }
+        
+        
     }
 }

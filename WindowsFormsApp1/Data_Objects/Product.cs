@@ -7,6 +7,14 @@ namespace Retalo
     {
 
         private Decimal cost;
+        private int productpurchasedquantity;
+
+        public Product() {
+
+            cost = 0;
+            productpurchasedquantity = 0;
+
+        }
 
         public String Description{
 
@@ -40,9 +48,14 @@ namespace Retalo
 
         public int ProductPurchasedQuantity{
 
-            get;
-            set;
-            
+            get{
+
+                return productpurchasedquantity;
+            }   
+            set
+            {
+                productpurchasedquantity = value;
+            }
         }
 
         public int GetProductPurchasedQuantity()

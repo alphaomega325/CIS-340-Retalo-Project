@@ -8,8 +8,13 @@ namespace Retalo
     public class Invoice : Item
     {
 
-        List<int> productininvoicequanity = new List<int>();
+        List<Product> productsininvoice;
         int totalproductininvoicequantity;
+
+        public Invoice(){
+            totalproductininvoicequantity = 0;
+            productsininvoice = new List<Product>();
+        }
         
         public int PerID{
             get;
@@ -48,10 +53,14 @@ namespace Retalo
         
         
         public List<Product> ProductsInInvoice{
-
-            get;
-            set;
-
+            get
+            {
+                return productsininvoice;
+            }
+            set
+            {
+                productsininvoice = value;
+            }
         }
 
         public int TotalProductInInvoiceQuantity{
@@ -59,21 +68,42 @@ namespace Retalo
             get{
 
                 totalproductininvoicequantity = 0;
+                
                 foreach(Product products in ProductsInInvoice)
                 {
                     totalproductininvoicequantity += products.GetProductPurchasedQuantity();
                 }
+                
                 return totalproductininvoicequantity;
             }
-
-               
 
         }
 
 
-        
+        public Product GetProduct(int id){
+            
+            return ProductsInInvoice.Find(product => product.ID == id);
+        }
+
+        public void AddProduct(Product product){
+
+            if(!ProductsInInvoice.Exists(e => e.ID == product.ID)){
+
+                ProductsInInvoice.Add(product);
+            }
+            else{
+                
+                Product temp = ProductsInInvoice.Find(e => e.ID == product.ID);
+                int qauntitytemp = temp.GetProductPurchasedQuantity() + product.GetProductPurchasedQuantity();
+                temp.SetProductPurchasedQuantity(qauntitytemp);
+                int index = ProductsInInvoice.FindIndex(e => e.ID == temp.ID);
+                ProductsInInvoice[index] = temp;
+                
+            }
+        }
+
+        public void RemoveProduct(int id) => ProductsInInvoice.Remove(ProductsInInvoice.Find(products => products.ID == id));
 
     }
-
-
 }
+
