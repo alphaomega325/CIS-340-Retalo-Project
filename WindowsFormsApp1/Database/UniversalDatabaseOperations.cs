@@ -50,7 +50,26 @@ namespace Retalo
             }
         }
 
-
+        public static Invoice ReturnItem(Invoice invoice)
+        {
+            
+            try {
+                SqlConnection connect = RetaloDB.GetConnection();
+                string selectStatement =
+               "Select *"
+               + "FROM Invoice"
+               + " Where InvID = @id";
+                SqlCommand selectCommand = new SqlCommand(selectStatement, connect);
+                selectCommand.Parameters.AddWithValue("@id", invoice.ID);
+                Product invoice2 = InvoiceOperations.ReturnInvoice(selectCommand, connect);
+                return invoice2;
+            }
+            catch (Exception ex) {
+                throw ex;
+            }
+            
+        }
+        
         public static Boolean DeleteItem(int id, String database) {
 
             //Delete Item Object Parser and check if item exists
