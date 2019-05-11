@@ -12,6 +12,7 @@ namespace Retalo
 {
     public partial class Person_UpdateorAdder : Form
     {
+
         Person person;
 
         public Person_UpdateorAdder()
@@ -19,8 +20,8 @@ namespace Retalo
             InitializeComponent();
         }
 
-	private Boolean PersonObjectFill()
-	{
+	    private Boolean PersonObjectFill()
+	    {
             
             if (Int32.TryParse(Rewardptstxt.Text, out int reward))
             {
@@ -54,7 +55,7 @@ namespace Retalo
                 MessageBox.Show("Unable to parse reward points, need to have the reward points be numbers.");
                 return false;
             }
-	}
+	    }
 	
         private void Submitbtn_Click(object sender, EventArgs e)
         {
@@ -63,6 +64,7 @@ namespace Retalo
                 if(DatabaseOperation.AddorUpdateItem(person))
                 {
                     MessageBox.Show("Addition or modification to the database is a success");
+                    Update_Dataset();
                 }
                 else
                 {
@@ -97,12 +99,12 @@ namespace Retalo
                 else
                 {
                     Reset_Text();
-                    MessageBox.Show("You have selected a empty id, you can now fill it.");
+                    MessageBox.Show("You have selected a empty id, cannot edit or filled.");
                 }
             }
             else
             {
-                MessageBox.Show("Can't convert id box into a number, please put in a number into the id box");
+                MessageBox.Show("Can't convert id box into a number, please put in a number into the id box.");
             }
 
         }
@@ -111,10 +113,22 @@ namespace Retalo
         {
             int id = Int32.Parse(IDtxt.Text);
 
-            if (DatabaseOperation.DeleteItem(id, "Person") == false)
+
+            using (var form = new Delete_Confirmation())
             {
-                MessageBox.Show("ID doesn't exist, can't delete");
+
+                var result = form.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    if (DatabaseOperation.DeleteItem(id, "Person") == false)
+                    {
+
+                        MessageBox.Show("ID doesn't exist, can't delete.");
+                    }
+                }
             }
+            Update_Dataset();
         }
 
         private void Reset_Text()
@@ -131,6 +145,18 @@ namespace Retalo
             Isveteranchkbx.Checked = false;
             Isadminchkbx.Checked = false;
 
+
+        }
+
+        private void Update_Dataset()
+        {
+            this.personTableAdapter.Fill(this.retalo_DBDataSet.Person);
+        }
+
+        private void Person_UpdateorAdder_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'retalo_DBDataSet.Person' table. You can move, or remove it, as needed.
+            this.personTableAdapter.Fill(this.retalo_DBDataSet.Person);
 
         }
     }

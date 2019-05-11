@@ -61,7 +61,7 @@ namespace Retalo
                + " Where InvID = @id";
                 SqlCommand selectCommand = new SqlCommand(selectStatement, connect);
                 selectCommand.Parameters.AddWithValue("@id", invoice.ID);
-                Product invoice2 = InvoiceOperations.ReturnInvoice(selectCommand, connect);
+                Invoice invoice2 = InvoiceOperations.ReturnInvoice(selectCommand, connect);
                 return invoice2;
             }
             catch (Exception ex) {

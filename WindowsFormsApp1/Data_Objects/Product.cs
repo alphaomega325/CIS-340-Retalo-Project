@@ -46,6 +46,8 @@ namespace Retalo
 
         }
 
+        public Decimal TotalProductPurchasedCost => cost * productpurchasedquantity;
+
         public int ProductPurchasedQuantity{
 
             get{

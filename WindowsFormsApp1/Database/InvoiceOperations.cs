@@ -1,6 +1,7 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 
 namespace Retalo
 {
@@ -19,11 +20,11 @@ namespace Retalo
                 {
                     invoice.ID = (int)invoiceReader["InvID"];
                     invoice.PerID = (int)invoiceReader["PerID"];
-                    invoice.DateOfInvoice = invoiceReader["DateOfInvoice"];
-                    invoice.IsPaidFor = invoiceReader["Is Paid For"];
-                    invoice.TotalCost = invoiceReader["Total Cost"];
+                    invoice.DateOfInvoice = (DateTime)invoiceReader["DateOfInvoice"];
+                    invoice.IsPaidFor = (bool)invoiceReader["Is Paid For"];
+                    invoice.TotalCost = (decimal)invoiceReader["Total Cost"];
 
-                    invoice = PopulateProducts(invoice);
+                    invoice = PopulateProducts(invoice, connect);
                     
                 }
 
@@ -50,6 +51,37 @@ namespace Retalo
                 + " From \"Invoice Detail\""
                 + " Where InvID = @id";
 
+            SqlCommand invoicedetailsselectcommand = new SqlCommand(invoicedetailsselect, connection);
+
+            invoicedetailsselectcommand.Parameters.AddWithValue("@id", invoice.ID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader productreader = invoicedetailsselectcommand.ExecuteReader(CommandBehavior.SingleRow);
+                List<Product> products = new List<Product>();
+                
+
+                while(productreader.Read())
+                {
+                    Product tempproduct = new Product();
+                    tempproduct.ID = (int)productreader["ProdID"];
+                    tempproduct = DatabaseOperation.ReturnItem(tempproduct);
+                    tempproduct.SetProductPurchasedQuantity((int)productreader["Quantity"]);
+                    products.Add(tempproduct);
+
+                }
+
+                invoice.ProductsInInvoice = products;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
             return invoice;
             
             

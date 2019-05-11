@@ -19,6 +19,18 @@ namespace Retalo
 
         private void Product_Updator_or_Adder_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'retalo_DBDataSet.Products' table. You can move, or remove it, as needed.
+            this.productsTableAdapter.Fill(this.retalo_DBDataSet.Products);
+
+        }
+
+        private void submitbtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deletebtn_Click(object sender, EventArgs e)
+        {
 
         }
     }

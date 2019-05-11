@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.idlbl = new System.Windows.Forms.Label();
             this.Fnamelbl = new System.Windows.Forms.Label();
             this.Phonelbl = new System.Windows.Forms.Label();
@@ -49,6 +50,24 @@
             this.Deletebtn = new System.Windows.Forms.Button();
             this.passwordlbl = new System.Windows.Forms.Label();
             this.Passwordtxt = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.retalo_DBDataSet = new Retalo.Retalo_DBDataSet();
+            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.personTableAdapter = new Retalo.Retalo_DBDataSetTableAdapters.PersonTableAdapter();
+            this.perIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rewardPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isTeacherDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.isAdminDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.isSeniorDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.isVeteranDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.retalo_DBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // idlbl
@@ -233,11 +252,115 @@
             this.Passwordtxt.Size = new System.Drawing.Size(100, 20);
             this.Passwordtxt.TabIndex = 27;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.perIDDataGridViewTextBoxColumn,
+            this.fNameDataGridViewTextBoxColumn,
+            this.lNameDataGridViewTextBoxColumn,
+            this.phoneNumberDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.rewardPointsDataGridViewTextBoxColumn,
+            this.isTeacherDataGridViewCheckBoxColumn,
+            this.isAdminDataGridViewCheckBoxColumn,
+            this.isSeniorDataGridViewCheckBoxColumn,
+            this.isVeteranDataGridViewCheckBoxColumn,
+            this.passwordDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.personBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(447, 30);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(946, 369);
+            this.dataGridView1.TabIndex = 28;
+            // 
+            // retalo_DBDataSet
+            // 
+            this.retalo_DBDataSet.DataSetName = "Retalo_DBDataSet";
+            this.retalo_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // personBindingSource
+            // 
+            this.personBindingSource.DataMember = "Person";
+            this.personBindingSource.DataSource = this.retalo_DBDataSet;
+            // 
+            // personTableAdapter
+            // 
+            this.personTableAdapter.ClearBeforeFill = true;
+            // 
+            // perIDDataGridViewTextBoxColumn
+            // 
+            this.perIDDataGridViewTextBoxColumn.DataPropertyName = "PerID";
+            this.perIDDataGridViewTextBoxColumn.HeaderText = "PerID";
+            this.perIDDataGridViewTextBoxColumn.Name = "perIDDataGridViewTextBoxColumn";
+            this.perIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fNameDataGridViewTextBoxColumn
+            // 
+            this.fNameDataGridViewTextBoxColumn.DataPropertyName = "FName";
+            this.fNameDataGridViewTextBoxColumn.HeaderText = "FName";
+            this.fNameDataGridViewTextBoxColumn.Name = "fNameDataGridViewTextBoxColumn";
+            // 
+            // lNameDataGridViewTextBoxColumn
+            // 
+            this.lNameDataGridViewTextBoxColumn.DataPropertyName = "LName";
+            this.lNameDataGridViewTextBoxColumn.HeaderText = "LName";
+            this.lNameDataGridViewTextBoxColumn.Name = "lNameDataGridViewTextBoxColumn";
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Phone Number";
+            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone Number";
+            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            // 
+            // rewardPointsDataGridViewTextBoxColumn
+            // 
+            this.rewardPointsDataGridViewTextBoxColumn.DataPropertyName = "Reward Points";
+            this.rewardPointsDataGridViewTextBoxColumn.HeaderText = "Reward Points";
+            this.rewardPointsDataGridViewTextBoxColumn.Name = "rewardPointsDataGridViewTextBoxColumn";
+            // 
+            // isTeacherDataGridViewCheckBoxColumn
+            // 
+            this.isTeacherDataGridViewCheckBoxColumn.DataPropertyName = "Is_Teacher";
+            this.isTeacherDataGridViewCheckBoxColumn.HeaderText = "Is_Teacher";
+            this.isTeacherDataGridViewCheckBoxColumn.Name = "isTeacherDataGridViewCheckBoxColumn";
+            // 
+            // isAdminDataGridViewCheckBoxColumn
+            // 
+            this.isAdminDataGridViewCheckBoxColumn.DataPropertyName = "Is_Admin";
+            this.isAdminDataGridViewCheckBoxColumn.HeaderText = "Is_Admin";
+            this.isAdminDataGridViewCheckBoxColumn.Name = "isAdminDataGridViewCheckBoxColumn";
+            // 
+            // isSeniorDataGridViewCheckBoxColumn
+            // 
+            this.isSeniorDataGridViewCheckBoxColumn.DataPropertyName = "Is_Senior";
+            this.isSeniorDataGridViewCheckBoxColumn.HeaderText = "Is_Senior";
+            this.isSeniorDataGridViewCheckBoxColumn.Name = "isSeniorDataGridViewCheckBoxColumn";
+            // 
+            // isVeteranDataGridViewCheckBoxColumn
+            // 
+            this.isVeteranDataGridViewCheckBoxColumn.DataPropertyName = "Is_Veteran";
+            this.isVeteranDataGridViewCheckBoxColumn.HeaderText = "Is_Veteran";
+            this.isVeteranDataGridViewCheckBoxColumn.Name = "isVeteranDataGridViewCheckBoxColumn";
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "password";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            // 
             // Person_UpdateorAdder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1423, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Passwordtxt);
             this.Controls.Add(this.passwordlbl);
             this.Controls.Add(this.Deletebtn);
@@ -261,6 +384,10 @@
             this.Controls.Add(this.idlbl);
             this.Name = "Person_UpdateorAdder";
             this.Text = "Person_UpdateorAdder";
+            this.Load += new System.EventHandler(this.Person_UpdateorAdder_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.retalo_DBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,5 +416,20 @@
         private System.Windows.Forms.Button Deletebtn;
         private System.Windows.Forms.Label passwordlbl;
         private System.Windows.Forms.TextBox Passwordtxt;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private Retalo_DBDataSet retalo_DBDataSet;
+        private System.Windows.Forms.BindingSource personBindingSource;
+        private Retalo_DBDataSetTableAdapters.PersonTableAdapter personTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn perIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rewardPointsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isTeacherDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isAdminDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isSeniorDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isVeteranDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
     }
 }
