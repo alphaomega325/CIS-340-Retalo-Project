@@ -6,7 +6,7 @@ namespace Retalo
 {
     public static class PersonOperations
     {
-
+        
         public static Person ReturnPerson(SqlCommand selectCommand, SqlConnection connect)
         {
 

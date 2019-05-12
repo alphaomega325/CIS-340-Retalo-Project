@@ -7,6 +7,33 @@ namespace Retalo
 
     public static class DatabaseOperation
     {
+
+        public static Person ReturnItem(String email)
+        {
+            try {
+
+                SqlConnection connect = RetaloDB.GetConnection();
+
+                string selectStatement =
+                    "Select *"
+                    + " FROM Person"
+                    + " Where Email = @email";
+
+                SqlCommand selectCommand = new SqlCommand(selectStatement, connect);
+                selectCommand.Parameters.AddWithValue("@email", email);
+
+                Person person = PersonOperations.ReturnPerson(selectCommand, connect);
+                return person;
+
+
+            } catch (Exception ex) {
+
+                throw ex;
+            }
+            
+        }
+
+        
         public static Person ReturnItem(Person person)
         {
             if (person.ID.ToString() == "")

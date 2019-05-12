@@ -12,9 +12,87 @@ namespace Retalo
 {
     public partial class Product_Updator_or_Adder : Form
     {
+
+        Product product;
+        
         public Product_Updator_or_Adder()
         {
             InitializeComponent();
+        }
+
+        private void Update_Dataset(){
+
+            this.productsTableAdapter.Fill(this.retalo_DBDataSet.Products);
+            
+
+        }
+
+        private Boolean ProductObjectFill()
+        {
+            
+            product = new Product();
+
+            if (Int32.TryParse(prodtxt.Text, out int id)){
+                string coststring = String.Format("{0:c}", costtxt.Text);
+                if(decimal.TryParse(coststring, out decimal cost)){
+
+                    product.ID = id;
+                    product.Name = nametxt.Text;
+                    product.Description = descriptiontxt.Text;
+                    product.Cost = cost;
+                    product.ProductType = producttypetxt.Text;
+                    return true;
+                }
+            }
+            
+
+            MessageBox.Show("Make sure that the id and cost is a number");
+            return false;
+
+
+        }
+        
+
+        private void submitbtn_Click(object sender, EventArgs e)
+        {
+            if(ProductObjectFill())
+            {
+                if(DatabaseOperation.AddorUpdateItem(product)){
+                    
+                    MessageBox.Show("Addition or modification to the database is a success");
+                    Update_Dataset();
+                    
+                    
+                }
+                else{
+                    MessageBox.Show("Unable to add or modify the database, please try again later");
+                    
+                }
+                
+                
+            }
+            
+        }
+
+        private void deletebtn_Click(object sender, EventArgs e)
+        {
+            int id = Int32.Parse(prodtxt.Text);
+            
+            using (var form = new Delete_Confirmation())
+            {
+
+                var result = form.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    if (DatabaseOperation.DeleteItem(id, "Product") == false)
+                    {
+
+                        MessageBox.Show("ID doesn't exist, can't delete.");
+                    }
+                }
+            }
+            Update_Dataset();
         }
 
         private void Product_Updator_or_Adder_Load(object sender, EventArgs e)
@@ -24,14 +102,7 @@ namespace Retalo
 
         }
 
-        private void submitbtn_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void deletebtn_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
