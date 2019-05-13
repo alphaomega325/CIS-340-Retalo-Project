@@ -177,8 +177,8 @@
     <None Include="Retalo_DBDataSet1.xss">
       <DependentUpon>Retalo_DBDataSet1.xsd</DependentUpon>
     </None>
-    <Compile Include="Login Verification\loginverification.cs" />
-    <Compile Include="Invoice Calculatations\CalculateInvoiceTotal.cs" />
+    <Compile Include="Business Logic\Invoice Calculatations\CalculateInvoiceTotal.cs" />
+    <Compile Include="Business Logic\Login Verification\loginverification.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

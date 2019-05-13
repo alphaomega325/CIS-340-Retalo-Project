@@ -6,7 +6,7 @@ namespace Retalo
     public class loginverification {
 
 
-        public boolean verify(String password, String email){
+        public Boolean verify(String password, String email){
 
             if(password == "" || email == ""){
 
@@ -14,7 +14,7 @@ namespace Retalo
 
             }
 
-            Person person = DatabaseOperations.ReturnItem(email);
+            Person person = DatabaseOperation.ReturnItem(email);
 
             if(person.Password == password){
                 return true;
