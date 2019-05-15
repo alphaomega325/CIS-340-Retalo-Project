@@ -16,7 +16,7 @@ namespace Retalo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Admin_Main_Menu());
+            Application.Run(new Login());
         }
     }
 }

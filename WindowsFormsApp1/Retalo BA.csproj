@@ -85,6 +85,12 @@
     <Compile Include="FrontEnd\Invoice Viewer.Designer.cs">
       <DependentUpon>Invoice Viewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrontEnd\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrontEnd\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrontEnd\Person Viewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,12 +106,6 @@
     </Compile>
     <Compile Include="FrontEnd\Product Viewer.Designer.cs">
       <DependentUpon>Product Viewer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrontEnd\Product_Adder_Updater.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrontEnd\Product_Adder_Updater.Designer.cs">
-      <DependentUpon>Product_Adder_Updater.cs</DependentUpon>
     </Compile>
     <Compile Include="FrontEnd\Product_Updator_or_Adder.cs">
       <SubType>Form</SubType>
@@ -133,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrontEnd\Invoice Viewer.resx">
       <DependentUpon>Invoice Viewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrontEnd\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrontEnd\Person Viewer.resx">
       <DependentUpon>Person Viewer.cs</DependentUpon>

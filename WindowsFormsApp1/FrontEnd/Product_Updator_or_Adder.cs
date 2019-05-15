@@ -32,7 +32,7 @@ namespace Retalo
             
             product = new Product();
 
-            if (Int32.TryParse(prodtxt.Text, out int id)){
+            if (Int32.TryParse(prodidtxt.Text, out int id)){
                 string coststring = String.Format("{0:c}", costtxt.Text);
                 if(decimal.TryParse(coststring, out decimal cost)){
 
@@ -76,7 +76,7 @@ namespace Retalo
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            int id = Int32.Parse(prodtxt.Text);
+            int id = Int32.Parse(prodidtxt.Text);
             
             using (var form = new Delete_Confirmation())
             {
@@ -95,13 +95,33 @@ namespace Retalo
             Update_Dataset();
         }
 
+        private void getproductbtn_Click(object sender, EventArgs e)
+        {
+            int id;
+
+            if(Int32.TryParse(prodidtxt.Text, out id))
+            {
+                product = new Product();
+                product.ID = id;
+
+                product = DatabaseOperation.ReturnItem(product);
+                if(product != null)
+                {
+
+
+                }
+
+            }
+
+
+        }
+
         private void Product_Updator_or_Adder_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'retalo_DBDataSet.Products' table. You can move, or remove it, as needed.
             this.productsTableAdapter.Fill(this.retalo_DBDataSet.Products);
 
         }
-
 
 
     }

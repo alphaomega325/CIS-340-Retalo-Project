@@ -44,12 +44,13 @@
             this.costlbl = new System.Windows.Forms.Label();
             this.prodtyplbl = new System.Windows.Forms.Label();
             this.nametxt = new System.Windows.Forms.TextBox();
-            this.prodtxt = new System.Windows.Forms.TextBox();
+            this.prodidtxt = new System.Windows.Forms.TextBox();
             this.producttypetxt = new System.Windows.Forms.TextBox();
             this.costtxt = new System.Windows.Forms.TextBox();
             this.descriptiontxt = new System.Windows.Forms.TextBox();
             this.deletebtn = new System.Windows.Forms.Button();
             this.submitbtn = new System.Windows.Forms.Button();
+            this.getproductbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.retalo_DBDataSet)).BeginInit();
@@ -176,12 +177,12 @@
             this.nametxt.Size = new System.Drawing.Size(100, 20);
             this.nametxt.TabIndex = 6;
             // 
-            // prodtxt
+            // prodidtxt
             // 
-            this.prodtxt.Location = new System.Drawing.Point(133, 63);
-            this.prodtxt.Name = "prodtxt";
-            this.prodtxt.Size = new System.Drawing.Size(100, 20);
-            this.prodtxt.TabIndex = 7;
+            this.prodidtxt.Location = new System.Drawing.Point(133, 63);
+            this.prodidtxt.Name = "prodidtxt";
+            this.prodidtxt.Size = new System.Drawing.Size(100, 20);
+            this.prodidtxt.TabIndex = 7;
             // 
             // producttypetxt
             // 
@@ -224,17 +225,28 @@
             this.submitbtn.UseVisualStyleBackColor = true;
             this.submitbtn.Click += new System.EventHandler(this.submitbtn_Click);
             // 
+            // getproductbtn
+            // 
+            this.getproductbtn.Location = new System.Drawing.Point(324, 60);
+            this.getproductbtn.Name = "getproductbtn";
+            this.getproductbtn.Size = new System.Drawing.Size(75, 23);
+            this.getproductbtn.TabIndex = 13;
+            this.getproductbtn.Text = "Get Product";
+            this.getproductbtn.UseVisualStyleBackColor = true;
+            this.getproductbtn.Click += new System.EventHandler(this.getproductbtn_Click);
+            // 
             // Product_Updator_or_Adder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1228, 450);
+            this.Controls.Add(this.getproductbtn);
             this.Controls.Add(this.submitbtn);
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.descriptiontxt);
             this.Controls.Add(this.costtxt);
             this.Controls.Add(this.producttypetxt);
-            this.Controls.Add(this.prodtxt);
+            this.Controls.Add(this.prodidtxt);
             this.Controls.Add(this.nametxt);
             this.Controls.Add(this.prodtyplbl);
             this.Controls.Add(this.costlbl);
@@ -270,11 +282,12 @@
         private System.Windows.Forms.Label costlbl;
         private System.Windows.Forms.Label prodtyplbl;
         private System.Windows.Forms.TextBox nametxt;
-        private System.Windows.Forms.TextBox prodtxt;
+        private System.Windows.Forms.TextBox prodidtxt;
         private System.Windows.Forms.TextBox producttypetxt;
         private System.Windows.Forms.TextBox costtxt;
         private System.Windows.Forms.TextBox descriptiontxt;
         private System.Windows.Forms.Button deletebtn;
         private System.Windows.Forms.Button submitbtn;
+        private System.Windows.Forms.Button getproductbtn;
     }
 }

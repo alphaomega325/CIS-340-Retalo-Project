@@ -5,8 +5,14 @@ namespace Retalo
 
     public class loginverification {
 
+        Person person;
 
-        public Boolean verify(String password, String email){
+        public loginverification()
+        {
+            person = null;
+        }
+
+        public Boolean Verify(String password, String email){
 
             if(password == "" || email == ""){
 
@@ -14,7 +20,7 @@ namespace Retalo
 
             }
 
-            Person person = DatabaseOperation.ReturnItem(email);
+            person = DatabaseOperation.ReturnItem(email);
 
             if(person.Password == password){
                 return true;
@@ -23,8 +29,23 @@ namespace Retalo
                 return false;
             }
             
-
-    }
+        }
+        
+        public Boolean CheckAdmin()
+        {
+            if(person == null)
+            {
+                return false;
+            }
+            if (person.IsAdmin)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 
