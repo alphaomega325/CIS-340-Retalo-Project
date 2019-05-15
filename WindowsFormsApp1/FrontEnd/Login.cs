@@ -24,7 +24,9 @@ namespace Retalo
             {
                 if (login.CheckAdmin())
                 {
-                    Application.Run(new Admin_Main_Menu());
+                    Admin_main_menu menu = new Admin_main_menu();
+                    menu.ShowDialog();
+                    this.Exit();
                 }
 
             }
