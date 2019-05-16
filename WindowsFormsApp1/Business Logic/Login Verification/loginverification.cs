@@ -22,7 +22,11 @@ namespace Retalo
 
             person = DatabaseOperation.ReturnItem(email);
 
-            if(person.Password == password){
+            if(person == null)
+            {
+                return false;
+            }
+            else if(person.Password == password){
                 return true;
             }
             else{

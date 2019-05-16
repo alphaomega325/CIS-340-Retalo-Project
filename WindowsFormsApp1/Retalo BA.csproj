@@ -73,6 +73,30 @@
     <Compile Include="FrontEnd\Admin Main Menu.Designer.cs">
       <DependentUpon>Admin Main Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrontEnd\Admin_Unpaid_Invoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrontEnd\Admin_Unpaid_Invoice.Designer.cs">
+      <DependentUpon>Admin_Unpaid_Invoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\Customer_Invoice_History.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrontEnd\Customer_Invoice_History.Designer.cs">
+      <DependentUpon>Customer_Invoice_History.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\Customer_Main_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrontEnd\Customer_Main_Menu.Designer.cs">
+      <DependentUpon>Customer_Main_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd\Customer_Shopping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrontEnd\Customer_Shopping.Designer.cs">
+      <DependentUpon>Customer_Shopping.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrontEnd\Delete_Confirmation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +151,18 @@
     </Compile>
     <EmbeddedResource Include="FrontEnd\Admin Main Menu.resx">
       <DependentUpon>Admin Main Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrontEnd\Admin_Unpaid_Invoice.resx">
+      <DependentUpon>Admin_Unpaid_Invoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrontEnd\Customer_Invoice_History.resx">
+      <DependentUpon>Customer_Invoice_History.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrontEnd\Customer_Main_Menu.resx">
+      <DependentUpon>Customer_Main_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrontEnd\Customer_Shopping.resx">
+      <DependentUpon>Customer_Shopping.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrontEnd\Delete_Confirmation.resx">
       <DependentUpon>Delete_Confirmation.cs</DependentUpon>

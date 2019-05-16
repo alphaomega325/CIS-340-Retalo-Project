@@ -24,14 +24,27 @@ namespace Retalo
             {
                 if (login.CheckAdmin())
                 {
-                    Admin_main_menu menu = new Admin_main_menu();
+                    Admin_Main_Menu menu = new Admin_Main_Menu();
+                    this.Hide();
                     menu.ShowDialog();
-                    this.Exit();
+                    this.Show();
+                    
                 }
+                else { 
+
+                Customer_Main_Menu menu = new Customer_Main_Menu(DatabaseOperation.ReturnItem(emailtxt.Text));
+                this.Hide();
+                menu.ShowDialog();
+                this.Show();
+                }
+
+                emailtxt.Text = "";
+                passwordtxt.Text = ""; 
 
             }
             else
             {
+                MessageBox.Show("Wrong email or password");
 
             }
 
@@ -43,9 +56,5 @@ namespace Retalo
             System.Windows.Forms.Application.Exit();
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
