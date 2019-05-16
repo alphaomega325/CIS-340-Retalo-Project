@@ -8,6 +8,7 @@ namespace Retalo
 
         public Invoice CalculateInvoice(Person customer, Invoice invoice, Boolean useRewards){
 
+            invoice.TotalCost = 0;
             
             foreach(Product products in invoice.ProductsInInvoice){
 
@@ -26,7 +27,7 @@ namespace Retalo
 
             if((customer.IsSenior == false) || (customer.IsVeteran == false)){
 
-                invoice.TotalCost += invoice.TotalCost * .55m;
+                invoice.TotalCost += invoice.TotalCost * .055m;
 
             }
             else if((customer.IsVeteran) && (customer.IsSenior)){
@@ -41,7 +42,7 @@ namespace Retalo
             }
             else if(customer.IsSenior){
 
-                invoice.TotalCost -= invoice.TotalCost * .5m;
+                invoice.TotalCost -= invoice.TotalCost * .05m;
                 
             }
             
@@ -64,13 +65,13 @@ namespace Retalo
 
         public Invoice CalculateEstimatedInvoiceWithoutBonus(Invoice invoice)
         {
-            
+            invoice.TotalCost = 0;
             foreach(Product products in invoice.ProductsInInvoice){
                        
                 invoice.TotalCost += products.TotalProductPurchasedCost;
             }
 
-            invoice.TotalCost += invoice.TotalCost * .55m;
+            invoice.TotalCost += invoice.TotalCost * .055m;
 
             return invoice;
             

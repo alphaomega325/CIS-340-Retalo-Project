@@ -87,18 +87,21 @@ namespace Retalo
 
         public void AddProduct(Product product){
 
-            if(!ProductsInInvoice.Exists(e => e.ID == product.ID)){
+            
+            if (!ProductsInInvoice.Exists(e => e.ID == product.ID) && product != null)
+            {
 
                 ProductsInInvoice.Add(product);
             }
-            else{
-                
+            else if(product != null)
+            {
+
                 Product temp = ProductsInInvoice.Find(e => e.ID == product.ID);
                 int qauntitytemp = temp.GetProductPurchasedQuantity() + product.GetProductPurchasedQuantity();
                 temp.SetProductPurchasedQuantity(qauntitytemp);
                 int index = ProductsInInvoice.FindIndex(e => e.ID == temp.ID);
                 ProductsInInvoice[index] = temp;
-                
+
             }
         }
 

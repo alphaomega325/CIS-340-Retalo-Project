@@ -33,6 +33,7 @@
             this.Invoice_Viewerbtn = new System.Windows.Forms.Button();
             this.Personupdatorbtn = new System.Windows.Forms.Button();
             this.Productupdatorbtn = new System.Windows.Forms.Button();
+            this.invoiceoutstandingbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Person_Viewerbtn
@@ -85,11 +86,22 @@
             this.Productupdatorbtn.UseVisualStyleBackColor = true;
             this.Productupdatorbtn.Click += new System.EventHandler(this.Productupdatorbtn_Click);
             // 
+            // invoiceoutstandingbtn
+            // 
+            this.invoiceoutstandingbtn.Location = new System.Drawing.Point(530, 260);
+            this.invoiceoutstandingbtn.Name = "invoiceoutstandingbtn";
+            this.invoiceoutstandingbtn.Size = new System.Drawing.Size(168, 23);
+            this.invoiceoutstandingbtn.TabIndex = 5;
+            this.invoiceoutstandingbtn.Text = "Outstanding Invoices";
+            this.invoiceoutstandingbtn.UseVisualStyleBackColor = true;
+            this.invoiceoutstandingbtn.Click += new System.EventHandler(this.invoiceoutstandingbtn_Click);
+            // 
             // Admin_Main_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.invoiceoutstandingbtn);
             this.Controls.Add(this.Productupdatorbtn);
             this.Controls.Add(this.Personupdatorbtn);
             this.Controls.Add(this.Invoice_Viewerbtn);
@@ -108,5 +120,6 @@
         private System.Windows.Forms.Button Invoice_Viewerbtn;
         private System.Windows.Forms.Button Personupdatorbtn;
         private System.Windows.Forms.Button Productupdatorbtn;
+        private System.Windows.Forms.Button invoiceoutstandingbtn;
     }
 }

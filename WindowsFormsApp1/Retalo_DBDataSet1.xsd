@@ -113,6 +113,17 @@ WHERE [Is Paid For] = 0</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="Retalo_DBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy3" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy3" GeneratorSourceName="FillBy3" GetMethodModifier="Public" GetMethodName="GetDataBy3" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillBy3">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Invoice.InvID, Invoice.PerID, Invoice.[Date Of Invoice], Invoice.[Amount Of Product], Invoice.[Is Paid For], Invoice.[Total Cost], Person.FName, Person.LName, Person.[Phone Number], Person.Email
+FROM            Invoice FULL OUTER JOIN
+                         Person ON Invoice.PerID = Person.PerID
+WHERE        (Invoice.[Is Paid For] = 0)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
             </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Invoices DetailTableAdapter" GeneratorDataComponentClassName="Invoices_DetailTableAdapter" Name="Invoices Detail" UserDataComponentName="Invoices DetailTableAdapter">
@@ -356,7 +367,7 @@ SELECT ProdID, Name, Description, Cost, [Product Type] FROM Products WHERE (Prod
   <xs:element name="Retalo_DBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Retalo_DBDataSet" msprop:Generator_UserDSName="Retalo_DBDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Invoice" msprop:Generator_TableClassName="InvoiceDataTable" msprop:Generator_TableVarName="tableInvoice" msprop:Generator_RowChangedName="InvoiceRowChanged" msprop:Generator_TablePropName="Invoice" msprop:Generator_RowDeletingName="InvoiceRowDeleting" msprop:Generator_RowChangingName="InvoiceRowChanging" msprop:Generator_RowEvHandlerName="InvoiceRowChangeEventHandler" msprop:Generator_RowDeletedName="InvoiceRowDeleted" msprop:Generator_RowClassName="InvoiceRow" msprop:Generator_UserTableName="Invoice" msprop:Generator_RowEvArgName="InvoiceRowChangeEvent">
+        <xs:element name="Invoice" msprop:Generator_TableClassName="InvoiceDataTable" msprop:Generator_TableVarName="tableInvoice" msprop:Generator_TablePropName="Invoice" msprop:Generator_RowDeletingName="InvoiceRowDeleting" msprop:Generator_RowChangingName="InvoiceRowChanging" msprop:Generator_RowEvHandlerName="InvoiceRowChangeEventHandler" msprop:Generator_RowDeletedName="InvoiceRowDeleted" msprop:Generator_UserTableName="Invoice" msprop:Generator_RowChangedName="InvoiceRowChanged" msprop:Generator_RowEvArgName="InvoiceRowChangeEvent" msprop:Generator_RowClassName="InvoiceRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="InvID" msprop:Generator_ColumnVarNameInTable="columnInvID" msprop:Generator_ColumnPropNameInRow="InvID" msprop:Generator_ColumnPropNameInTable="InvIDColumn" msprop:Generator_UserColumnName="InvID" type="xs:int" />
@@ -368,7 +379,7 @@ SELECT ProdID, Name, Description, Cost, [Product Type] FROM Products WHERE (Prod
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Invoices_x0020_Detail" msprop:Generator_TableClassName="Invoices_DetailDataTable" msprop:Generator_TableVarName="tableInvoices_Detail" msprop:Generator_RowChangedName="Invoices_DetailRowChanged" msprop:Generator_TablePropName="Invoices_Detail" msprop:Generator_RowDeletingName="Invoices_DetailRowDeleting" msprop:Generator_RowChangingName="Invoices_DetailRowChanging" msprop:Generator_RowEvHandlerName="Invoices_DetailRowChangeEventHandler" msprop:Generator_RowDeletedName="Invoices_DetailRowDeleted" msprop:Generator_RowClassName="Invoices_DetailRow" msprop:Generator_UserTableName="Invoices Detail" msprop:Generator_RowEvArgName="Invoices_DetailRowChangeEvent">
+        <xs:element name="Invoices_x0020_Detail" msprop:Generator_TableClassName="Invoices_DetailDataTable" msprop:Generator_TableVarName="tableInvoices_Detail" msprop:Generator_TablePropName="Invoices_Detail" msprop:Generator_RowDeletingName="Invoices_DetailRowDeleting" msprop:Generator_RowChangingName="Invoices_DetailRowChanging" msprop:Generator_RowEvHandlerName="Invoices_DetailRowChangeEventHandler" msprop:Generator_RowDeletedName="Invoices_DetailRowDeleted" msprop:Generator_UserTableName="Invoices Detail" msprop:Generator_RowChangedName="Invoices_DetailRowChanged" msprop:Generator_RowEvArgName="Invoices_DetailRowChangeEvent" msprop:Generator_RowClassName="Invoices_DetailRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="InvID" msprop:Generator_ColumnVarNameInTable="columnInvID" msprop:Generator_ColumnPropNameInRow="InvID" msprop:Generator_ColumnPropNameInTable="InvIDColumn" msprop:Generator_UserColumnName="InvID" type="xs:int" />
@@ -378,7 +389,7 @@ SELECT ProdID, Name, Description, Cost, [Product Type] FROM Products WHERE (Prod
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Person" msprop:Generator_TableClassName="PersonDataTable" msprop:Generator_TableVarName="tablePerson" msprop:Generator_RowChangedName="PersonRowChanged" msprop:Generator_TablePropName="Person" msprop:Generator_RowDeletingName="PersonRowDeleting" msprop:Generator_RowChangingName="PersonRowChanging" msprop:Generator_RowEvHandlerName="PersonRowChangeEventHandler" msprop:Generator_RowDeletedName="PersonRowDeleted" msprop:Generator_RowClassName="PersonRow" msprop:Generator_UserTableName="Person" msprop:Generator_RowEvArgName="PersonRowChangeEvent">
+        <xs:element name="Person" msprop:Generator_TableClassName="PersonDataTable" msprop:Generator_TableVarName="tablePerson" msprop:Generator_TablePropName="Person" msprop:Generator_RowDeletingName="PersonRowDeleting" msprop:Generator_RowChangingName="PersonRowChanging" msprop:Generator_RowEvHandlerName="PersonRowChangeEventHandler" msprop:Generator_RowDeletedName="PersonRowDeleted" msprop:Generator_UserTableName="Person" msprop:Generator_RowChangedName="PersonRowChanged" msprop:Generator_RowEvArgName="PersonRowChangeEvent" msprop:Generator_RowClassName="PersonRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PerID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnPerID" msprop:Generator_ColumnPropNameInRow="PerID" msprop:Generator_ColumnPropNameInTable="PerIDColumn" msprop:Generator_UserColumnName="PerID" type="xs:int" />
@@ -425,7 +436,7 @@ SELECT ProdID, Name, Description, Cost, [Product Type] FROM Products WHERE (Prod
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Products" msprop:Generator_TableClassName="ProductsDataTable" msprop:Generator_TableVarName="tableProducts" msprop:Generator_RowChangedName="ProductsRowChanged" msprop:Generator_TablePropName="Products" msprop:Generator_RowDeletingName="ProductsRowDeleting" msprop:Generator_RowChangingName="ProductsRowChanging" msprop:Generator_RowEvHandlerName="ProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductsRowDeleted" msprop:Generator_RowClassName="ProductsRow" msprop:Generator_UserTableName="Products" msprop:Generator_RowEvArgName="ProductsRowChangeEvent">
+        <xs:element name="Products" msprop:Generator_TableClassName="ProductsDataTable" msprop:Generator_TableVarName="tableProducts" msprop:Generator_TablePropName="Products" msprop:Generator_RowDeletingName="ProductsRowDeleting" msprop:Generator_RowChangingName="ProductsRowChanging" msprop:Generator_RowEvHandlerName="ProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductsRowDeleted" msprop:Generator_UserTableName="Products" msprop:Generator_RowChangedName="ProductsRowChanged" msprop:Generator_RowEvArgName="ProductsRowChangeEvent" msprop:Generator_RowClassName="ProductsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ProdID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProdID" msprop:Generator_ColumnPropNameInRow="ProdID" msprop:Generator_ColumnPropNameInTable="ProdIDColumn" msprop:Generator_UserColumnName="ProdID" type="xs:int" />
@@ -476,9 +487,9 @@ SELECT ProdID, Name, Description, Cost, [Product Type] FROM Products WHERE (Prod
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__Invoice__PerID__398D8EEE" msdata:parent="Person" msdata:child="Invoice" msdata:parentkey="PerID" msdata:childkey="PerID" msprop:Generator_UserChildTable="Invoice" msprop:Generator_ChildPropName="GetInvoiceRows" msprop:Generator_UserRelationName="FK__Invoice__PerID__398D8EEE" msprop:Generator_ParentPropName="PersonRow" msprop:Generator_RelationVarName="relationFK__Invoice__PerID__398D8EEE" msprop:Generator_UserParentTable="Person" />
-      <msdata:Relationship name="InvID_x0020_to_x0020_InvID" msdata:parent="Invoice" msdata:child="Invoices_x0020_Detail" msdata:parentkey="InvID" msdata:childkey="InvID" msprop:Generator_UserChildTable="Invoices Detail" msprop:Generator_ChildPropName="GetInvoices_DetailRows" msprop:Generator_UserRelationName="InvID to InvID" msprop:Generator_RelationVarName="relationInvID_to_InvID" msprop:Generator_UserParentTable="Invoice" msprop:Generator_ParentPropName="InvoiceRow" />
-      <msdata:Relationship name="ProdID_x0020_to_x0020_ProdID" msdata:parent="Products" msdata:child="Invoices_x0020_Detail" msdata:parentkey="ProdID" msdata:childkey="ProdID" msprop:Generator_UserChildTable="Invoices Detail" msprop:Generator_ChildPropName="GetInvoices_DetailRows" msprop:Generator_UserRelationName="ProdID to ProdID" msprop:Generator_ParentPropName="ProductsRow" msprop:Generator_RelationVarName="relationProdID_to_ProdID" msprop:Generator_UserParentTable="Products" />
+      <msdata:Relationship name="FK__Invoice__PerID__398D8EEE" msdata:parent="Person" msdata:child="Invoice" msdata:parentkey="PerID" msdata:childkey="PerID" msprop:Generator_UserChildTable="Invoice" msprop:Generator_ChildPropName="GetInvoiceRows" msprop:Generator_UserRelationName="FK__Invoice__PerID__398D8EEE" msprop:Generator_RelationVarName="relationFK__Invoice__PerID__398D8EEE" msprop:Generator_UserParentTable="Person" msprop:Generator_ParentPropName="PersonRow" />
+      <msdata:Relationship name="InvID_x0020_to_x0020_InvID" msdata:parent="Invoice" msdata:child="Invoices_x0020_Detail" msdata:parentkey="InvID" msdata:childkey="InvID" msprop:Generator_UserChildTable="Invoices Detail" msprop:Generator_ChildPropName="GetInvoices_DetailRows" msprop:Generator_UserRelationName="InvID to InvID" msprop:Generator_ParentPropName="InvoiceRow" msprop:Generator_RelationVarName="relationInvID_to_InvID" msprop:Generator_UserParentTable="Invoice" />
+      <msdata:Relationship name="ProdID_x0020_to_x0020_ProdID" msdata:parent="Products" msdata:child="Invoices_x0020_Detail" msdata:parentkey="ProdID" msdata:childkey="ProdID" msprop:Generator_UserChildTable="Invoices Detail" msprop:Generator_ChildPropName="GetInvoices_DetailRows" msprop:Generator_UserRelationName="ProdID to ProdID" msprop:Generator_RelationVarName="relationProdID_to_ProdID" msprop:Generator_UserParentTable="Products" msprop:Generator_ParentPropName="ProductsRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

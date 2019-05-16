@@ -50,5 +50,11 @@ namespace Retalo
             product_updator.Show();
 
         }
+
+        private void invoiceoutstandingbtn_Click(object sender, EventArgs e)
+        {
+            Outstanding_Invoices invoice = new Outstanding_Invoices();
+            invoice.Show();
+        }
     }
 }

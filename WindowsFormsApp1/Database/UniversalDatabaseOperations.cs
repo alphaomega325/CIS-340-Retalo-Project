@@ -169,6 +169,14 @@ namespace Retalo
 
         }
 
+
+        public static Boolean AddItem(Invoice invoice)
+        {
+
+            return InvoiceOperations.AddInvoice(invoice);
+
+        }
+
         public static Boolean AddorUpdateItem(Product product)
         {
 

@@ -27,6 +27,10 @@ namespace Retalo
                     invoice = PopulateProducts(invoice, connect);
                     
                 }
+                else
+                {
+                    invoice = null;
+                }
 
             }
             catch(Exception ex){
@@ -88,14 +92,116 @@ namespace Retalo
         }
 
         
+        public static void AddInvoiceDetails(Invoice invoice, SqlConnection connect)
+        {
+
+            int invoiceid = 0;
+            try
+            {
+                string searchforinvoiceID = "Select InvID " +
+                    "From Invoice " +
+                    "Where \"Date Of Invoice\" = @date";
+
+                SqlCommand invoicesearchcommand = new SqlCommand(searchforinvoiceID, connect);
+
+               // invoicesearchcommand.Parameters.AddWithValue("@PerID", invoice.PerID);
+                invoicesearchcommand.Parameters.AddWithValue("@Date", invoice.DateOfInvoice);
+                //invoicesearchcommand.Parameters.AddWithValue("@Amount", invoice.TotalProductInInvoiceQuantity);
+                //invoicesearchcommand.Parameters.AddWithValue("@Paid", false);
+                //invoicesearchcommand.Parameters.AddWithValue("@Cost", invoice.TotalCost);
+
+                connect.Open();
+                SqlDataReader searchreader = invoicesearchcommand.ExecuteReader(CommandBehavior.SingleRow);
+                if (searchreader.Read())
+                {
+                    Int32.TryParse(searchreader["InvID"].ToString(), out invoiceid);
+                }
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connect.Close();
+            }
+          
+
+            foreach(Product product in invoice.ProductsInInvoice)
+            {
+                if (product != null)
+                {
+                    string invoicedetailsadd = "INSERT INTO \"Invoices Detail\" (InvID, ProdID, Quantity, \"Total Product Cost\") " +
+                        "Values(@invid, @prodid, @quantity, @cost);";
+                    SqlCommand invoicedetailsaddcommand = new SqlCommand(invoicedetailsadd, connect);
+
+                    invoicedetailsaddcommand.Parameters.AddWithValue("@invid", invoiceid);
+                    invoicedetailsaddcommand.Parameters.AddWithValue("@prodid", product.ID);
+                    invoicedetailsaddcommand.Parameters.AddWithValue("@quantity", product.GetProductPurchasedQuantity());
+                    invoicedetailsaddcommand.Parameters.AddWithValue("@cost", product.TotalProductPurchasedCost);
+
+                    try
+                    {
+                        connect.Open();
+                        
+                        invoicedetailsaddcommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        connect.Close();
+                    }
+                }
+            }
+
+        }
+
+
         public static Boolean AddInvoice(Invoice invoice)
         {
-            /*   if(DatabaseOperation.ReturnItem(invoice) != null)
+            if(DatabaseOperation.ReturnItem(invoice) != null)
             {
                 return false;
             }
-            */
-            return true;
+            else
+            {
+
+                SqlConnection connect = RetaloDB.GetConnection();
+
+                string invoiceadd = "INSERT INTO Invoice (PerID, \"Date Of Invoice\", \"Amount Of Product\", \"Is Paid For\", \"Total Cost\") " +
+                    "Values(@PerID, @Date, @Amount, @Paid, @Cost);";
+
+                SqlCommand invoiceaddcommand = new SqlCommand(invoiceadd, connect);
+
+                invoiceaddcommand.Parameters.AddWithValue("@PerID", invoice.PerID);
+                invoiceaddcommand.Parameters.AddWithValue("@Date", invoice.DateOfInvoice);
+                invoiceaddcommand.Parameters.AddWithValue("@Amount", invoice.TotalProductInInvoiceQuantity);
+                invoiceaddcommand.Parameters.AddWithValue("@Paid", false);
+                invoiceaddcommand.Parameters.AddWithValue("@Cost", invoice.TotalCost);
+                try
+                {
+                    connect.Open();
+
+                    invoiceaddcommand.ExecuteNonQuery();
+                    connect.Close();
+                    AddInvoiceDetails(invoice, connect);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    connect.Close();
+                }
+                return true;
+
+            }
+            
 
         }
         

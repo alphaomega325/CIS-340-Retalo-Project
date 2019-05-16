@@ -114,7 +114,7 @@ namespace Retalo
             int id = Int32.Parse(IDtxt.Text);
 
 
-            using (var form = new Delete_Confirmation())
+            using (var form = new Confirmation())
             {
 
                 var result = form.ShowDialog();
